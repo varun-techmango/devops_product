@@ -1,7 +1,7 @@
 const express        = require('express');
-const router         = express.Router();	
-const http = require('http');		
+const router         = express.Router();		
+
 exports.signin = function(req, res){
-	res.render("signin");
+	res.json({Login : "Login Page"})
 }
 

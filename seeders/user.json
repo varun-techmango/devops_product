@@ -1,0 +1,13 @@
+{
+    "data": [{
+        "model": "User",
+        "documents": [{
+            "fullname": "jeyalakshmi",
+            "username": "jeys",
+            "password": "password@12345",
+            "email" : "jeyalaksmi.r@techmango.net",
+            "roleid" : "1"
+        }]
+    }
+]
+}

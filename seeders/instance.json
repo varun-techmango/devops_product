@@ -1,0 +1,37 @@
+{
+    "data" : [
+        {
+            "model" : "Instance",
+            "documents" : [
+                {
+                    "instancename" : "DashBoard",
+                    "description" : "overview of data"
+                },
+                {
+                    "instancename" : "Infrastructure Management",
+                    "description" : "overview of data"
+                },
+                {
+                    "instancename" : "DevOPS",
+                    "description" : "DevOPS"
+                },
+                {
+                    "instancename" : "Monitoring",
+                    "description" : "Monitoring"
+                },
+                {
+                    "instancename" : "Audit Log",
+                    "description" : "Audit Log"
+                },
+                {
+                    "instancename" : "Backup/Restore",
+                    "description" : "Backup/Restore"
+                },
+                {
+                    "instancename" : "Cost Management",
+                    "description" : "Cost Management"
+                }
+            ]
+        }
+    ]
+}

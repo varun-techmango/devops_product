@@ -1,0 +1,25 @@
+{
+    "development": {
+      "database": "devops",
+      "host": "localhost",
+      "port" : "27017",
+      "dialect": "mongodb"
+    },
+    "test": {
+      "username": null,
+      "password": null,
+      "database": "devops",
+      "host": "localhost",
+      "dialect": "mongodb",
+      "port" : "27017"
+    },
+    "production": {
+      "username": null,
+      "password": null,
+      "database": "devops",
+      "host": "localhost",
+      "dialect": "mongodb",
+      "port" : "27017"
+    }
+  }
+  
