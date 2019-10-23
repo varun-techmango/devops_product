@@ -1,7 +1,7 @@
 // grab the things we need
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcryptjs')
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const bcrypt = require('bcryptjs')
 
 // create a schema
 var userSchema =  Schema({
@@ -33,6 +33,16 @@ userSchema.pre('save', function(next) {
   
     next();
   });
+
+/**
+ * Methods
+*/
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+      if (err) return cb(err);
+      cb(null, isMatch);
+  });
+};
 
 // the schema is useless so far
 // we need to create a model using it

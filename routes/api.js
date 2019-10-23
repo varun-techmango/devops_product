@@ -23,6 +23,12 @@ router.get('/datasetup' , datasetup.seedsetup)
 
 router.get('/' ,auth.signin);
 
+router.post('/validateUserName', auth.validateUserName )
+
+router.post('/checkLogin', auth.checkLogin )
+
+router.post('/dashboard' , auth.dashBoard)
+
 //app.route('./datasetup').get(datasetup.seedsetup)
 
 module.exports = router;
