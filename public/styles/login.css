@@ -295,3 +295,119 @@
 			left: 715px;
 			top: 489px;
 		}
+	
+	/* 5 - opsLab - reset password */
+#n22_103 {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: rgb(255, 255, 255);
+}
+ 
+ 
+ 
+			/* Welcome Back! */
+			#n22_106 {
+				font-family: Poppins;
+				font-size: 28px;
+				font-weight: 500;
+				letter-spacing: 0px;
+				color: rgb(14, 39, 71);
+				vertical-align: middle;
+				text-align: center;
+				justify-content: center;
+				width: 332px;
+				align-items: center;
+				line-height: 36px;
+				height: 42px;
+				left: calc((50% - 166px) + -10px);
+				top: 211px;
+			}
+ 
+			/* Welcome Back! */
+			#n22_107 {
+				font-family: Poppins;
+				font-size: 18px;
+				font-weight: 500;
+				letter-spacing: 0px;
+				color: rgb(191, 33, 75);
+				vertical-align: middle;
+				text-align: center;
+				justify-content: center;
+				width: 532px;
+				align-items: center;
+				line-height: 22px;
+				height: 40px;
+				left: calc((50% - 266px) + 0px);
+				top: 253px;
+			}
+ 
+ 
+			/* Rectangle */
+			#n22_109 {
+				border-radius: 4px;
+				box-shadow: rgb(191, 33, 75) 0px 0px 0px 1px inset;
+				left: 498px;
+				right: 497px;
+				bottom: 288px;
+				height: 45px;
+			}
+ 
+		/* Label */
+		#n22_110 {
+			font-family: Poppins;
+			font-size: 14px;
+			font-weight: 500;
+			letter-spacing: 0px;
+			color: rgb(14, 39, 71);
+			vertical-align: middle;
+			text-align: center;
+			justify-content: center;
+			width: 77px;
+			transform: translate(0px, -2.38667px);
+			line-height: 22px;
+			height: 22px;
+			left: 645px;
+			top: 321px;
+		}
+ 
+ 
+			/* Rectangle 1 */
+			#n22_115 {
+				background: rgb(191, 33, 75);
+				border-radius: 60px;
+				left: 609px;
+				width: 148px;
+				top: 430px;
+				height: 48px;
+			}
+ 
+			/* Reset now */
+			#n22_116 {
+				font-family: Poppins;
+				font-size: 14px;
+				font-weight: 500;
+				letter-spacing: 0px;
+				color: rgb(255, 255, 255);
+				vertical-align: middle;
+				text-align: center;
+				justify-content: center;
+				width: 77px;
+				align-items: center;
+				line-height: 36px;
+				height: 20px;
+				left: 641px;
+				top: 444px;
+			}
+ 
+	/* cherry-payment-processed 1 */
+	#n22_166 {
+		background-image: url("https://s3-alpha-sig.figma.com/img/e618/b635/8de7d5ec1b267d1690f502db67742b40?Expires=1572825600&Signature=QyIu4aX5s~9hr1rPT4NMobW88bKO9xoajIUdrkbzLKFoa4suXuZahwwgD4nm17gIb8tmbTMvLhRIegIrWwyRD3KKbAXVdyhQyNVEHNTFzpr71Sbe7fQuwZONKBNLJT4ZKCf9xOwl4QyNagw3cckHik2Eo3MT6C3YB397ILPAw5WkBsZOItsjUl1Ltb53R8H0nIeAIssn97YrCqsriIt0iTPsNsj1OAT3TAytBI2y8vtjeOnyUKXg4Ipd3de4mBAdxPmcLppJqDU7AwQQua6LI5xz7hiwgLlrvW-DIpMGaKFkpNcozeYzlEYfYL-i79w~ZeUl7Qk7xt2fVDMdLLB0pQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		left: 1012px;
+		width: 354px;
+		top: 273px;
+		height: 437px;
+	}

@@ -23,11 +23,15 @@ router.get('/datasetup' , datasetup.seedsetup)
 
 router.get('/' ,auth.signin);
 
-router.post('/validateUserName', auth.validateUserName )
+router.post('/validateUserName', auth.validateUserName)
+
+router.post('/validatePassword' ,auth.validatePassword)
 
 router.post('/checkLogin', auth.checkLogin )
 
-router.post('/dashboard' , auth.dashBoard)
+router.get('/dashboard' , auth.dashBoard)
+
+
 
 //app.route('./datasetup').get(datasetup.seedsetup)
 

@@ -6,9 +6,10 @@ const http = require('http');
 const https = require('https');
 var cookieParser = require('cookie-parser');
 const ejs = require('ejs');
-const session = require('express-session');
+const expressSession = require('express-session');
 const async = require('async');
 const apiRoute= require('./routes/api')
+const uuid = require('uuid/v4')
 
 const app = express();
 //var cors = require('cors');
@@ -17,6 +18,14 @@ const auth = require('./controller/AuthController');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+
+app.use(expressSession({
+    resave: false,
+    saveUninitialized: false,
+    secret: uuid('abcdefghijklmnopqrestuwxyz'),
+    key: 'auth_id',
+    cookie: { maxAge: 3600000 } 
+}));
 
 app.use(express.static(__dirname + '/public'));
 

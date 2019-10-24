@@ -1,6 +1,6 @@
  <script>
     $(document).ready(function(){
-        $('#pwdpage').hide()
+        // $('#pwdpage').hide()
 
         $("#txtEmail").on('input', function() {
             if($(this).val().trim() != ""){
@@ -10,8 +10,6 @@
         });
 
         $("#btnContinue").on('click',function(){
-            // submitUsername(userData)
-            //$('#userpage' , '#pwdpage').toggle()
             $('#pwdpage').show()
             $('#userpage').hide()
         })
@@ -19,7 +17,25 @@
         $("#btnStart").on('click',function(){
             checkLogin()
         })
+
+        $("#txtPassword").on('input', function() {
+            if($(this).val().trim() != ""){
+                validatePassword($(this).val().trim())
+            }
+        })
     });
+
+    // $(window).on('popstate', function(event) {
+    //     console.log("pop");
+    // });
+
+    window.onpopstate = function() {
+        alert('onpopstate')
+        console.log('onpopstate')
+        $("#txtEmail").val("");
+        // $("#txtPassword").val("");
+    }; 
+    //history.pushState({}, '');
 
     function validateUserName(email)
     {
@@ -28,35 +44,50 @@
     }).then(response => {  
        // $("#validationerrors").val(response);   
         if(response.data.msg === 'Success'){
-             console.log("response" + response.data.msg)
-            // userData = response.data.userdata
-            //$("#btnContinue").show();
+            console.log("response" + response.data.msg)
+            $("#n22_76").val( "Hi " + response.data.user.fullname + "!")
             $("#btnContinue").prop('disabled', false);
         } else {
+            $("#n22_76").val( "Hi")
             $("#btnContinue").prop('disabled', true);
         }
            
         }).catch(error => {      
             $("#validationerrors").val(error);                  
-         }); 
+        }); 
     }
 
-   function checkLogin(){
-    axios.post('/checkLogin', {
-        email_id: $('#txtEmail').val().trim(),
-        password: $('#txtPassword').val().trim()
-    }).then(response => {  
-       // $("#validationerrors").val(response);   
-        if(response.data.msg === 'Failed'){
-            console.log('failed')
-        } else {
-            console.log('success')
-        }
-           
-        }).catch(error => {      
-            $("#validationerrors").val(error);                  
-         }); 
+    function validatePassword(pwd){
+        axios.post('/validatePassword', {
+            email_id: $('#txtEmail').val().trim(),
+            password: $('#txtPassword').val().trim()
+        }).then(response => {
+            if(response.data.msg == 'Success'){
+                $("#btnStart").prop('disabled', false);
+            } else {
+                $("#btnStart").prop('disabled', true);
+            }
+            
+            }).catch(error => {      
+                $("#validationerrors").val(error);                  
+            }); 
+    }
 
-   }
+    function checkLogin(){
+        axios.post('/checkLogin', {
+            email_id: $('#txtEmail').val().trim(),
+            password: $('#txtPassword').val().trim()
+        }).then(response => {  
+            // $("#validationerrors").val(response);   
+            if(response.data.msg == 'Failed'){
+                console.log('failed')
+            } else {
+                window.location = "/dashboard"; 
+            }
+            
+            }).catch(error => {      
+                $("#validationerrors").val(error);                  
+            }); 
+    }
 
 </script>
