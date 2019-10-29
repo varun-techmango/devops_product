@@ -4,17 +4,21 @@ const mongoose      = require('mongoose');
 const path = require('path');
 const http = require('http');
 const https = require('https');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const ejs = require('ejs');
 const expressSession = require('express-session');
 const async = require('async');
 const apiRoute= require('./routes/api')
 const uuid = require('uuid/v4')
-
+const config = require('./config.json')
 const app = express();
-//var cors = require('cors');
-const auth = require('./controller/AuthController');
+// var redis = require('redis');
+// var client = redis.createClient();
 
+var connString = config.development.dialect + '://' 
++ config.development.host + ':' 
++ config.development.port + '/'
++ config.development.database
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -27,6 +31,8 @@ app.use(expressSession({
     cookie: { maxAge: 3600000 } 
 }));
 
+app.use(cookieParser())
+
 app.use(express.static(__dirname + '/public'));
 
 app.set('views', path.join(__dirname, 'views'));
@@ -36,10 +42,25 @@ mongoose.set('useNewUrlParser' , true);
 mongoose.set('useUnifiedTopology' , true)
 mongoose.set('useCreateIndex', true);
 
-mongoose.connect("mongodb://localhost:27017/devops" , 
+mongoose.connect(connString , 
 function(err, client) {
-    console.log("Connected successfully to mongodb")}    
+
+    // let isConnected = !!client && !!client.topology && client.topology.isConnected()
+    if (err == null){
+        console.log("Connected successfully to mongodb") 
+    } else {
+        console.log(err)
+    }
+}
 )
+
+// client.on('connect', function() {
+//     console.log('Redis client connected');
+// });
+
+// client.on('error', function (err) {
+//     console.log('Something went wrong ' + err);
+// });
 
 //Routing
 app.use('/' , apiRoute) //.get(auth.signin);

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const datasetup = require('../controller/DataSetupController')
 const auth = require('../controller/AuthController');
+const home = require('../controller/HomeController');
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {
@@ -29,7 +30,7 @@ router.post('/validatePassword' ,auth.validatePassword)
 
 router.post('/checkLogin', auth.checkLogin )
 
-router.get('/dashboard' , auth.dashBoard)
+router.get('/dashboard' , home.dashBoard)
 
 
 

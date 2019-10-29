@@ -1,6 +1,8 @@
  <script>
     $(document).ready(function(){
-        // $('#pwdpage').hide()
+        $('#pwdpage').hide()
+        $('#correct_email').css("display" , "none")
+        $('#correct_pwd').css("display" , "none")
 
         $("#txtEmail").on('input', function() {
             if($(this).val().trim() != ""){
@@ -10,8 +12,12 @@
         });
 
         $("#btnContinue").on('click',function(){
-            $('#pwdpage').show()
-            $('#userpage').hide()
+            console.log("Continue click working")
+            // $('#pwdpage').show()
+            // $('#userpage').hide()
+
+            $('#pwdpage').css("display" , "block")
+            $('#userpage').css("display" , "none")
         })
 
         $("#btnStart").on('click',function(){
@@ -35,7 +41,6 @@
         $("#txtEmail").val("");
         // $("#txtPassword").val("");
     }; 
-    //history.pushState({}, '');
 
     function validateUserName(email)
     {
@@ -44,12 +49,15 @@
     }).then(response => {  
        // $("#validationerrors").val(response);   
         if(response.data.msg === 'Success'){
-            console.log("response" + response.data.msg)
-            $("#n22_76").val( "Hi " + response.data.user.fullname + "!")
+            console.log("response" + response.data.user.fullname)
+            $("#divusername").text("Hi " + response.data.user.fullname + "!")
+            $('#correct_email').css("display" , "inline-block")
             $("#btnContinue").prop('disabled', false);
         } else {
-            $("#n22_76").val( "Hi")
-            $("#btnContinue").prop('disabled', true);
+            console.log("response testname")
+            $("#divusername").text("Hi! TestName")
+            $('#correct_email').css("display" , "none")
+            $("#btnContinue").prop('disabled', true);    
         }
            
         }).catch(error => {      
@@ -64,8 +72,10 @@
         }).then(response => {
             if(response.data.msg == 'Success'){
                 $("#btnStart").prop('disabled', false);
+                $('#correct_pwd').css("display" , "inline-block")
             } else {
                 $("#btnStart").prop('disabled', true);
+                $('#correct_pwd').css("display" , "none")
             }
             
             }).catch(error => {      

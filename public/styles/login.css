@@ -1,413 +1,206 @@
-#n1_2 {
-	width: 56%;
-	height: 100%;
-	overflow: hidden;
-    background: rgb(255, 255, 255);
-    float: right;
-    position: relative;
-    bottom :1000px;
-}
 
-			/* Welcome Back! */
-			#n7_48 {
-				font-family: Poppins;
-				font-size: 28px;
-				font-weight: 500;
-				letter-spacing: 0px;
-				color: rgb(14, 39, 71);
-				vertical-align: middle;
-				justify-content: flex-start;
-				width: 572px;
-				align-items: center;
-				line-height: 36px;
-				height: 74px;
-				left: calc((50% - 286px) + 286px);
-				top: 203px;
-			}
- 
-			/* Welcome Back! */
-			#n7_49 {
-				font-family: Poppins;
-				font-size: 14px;
-				font-weight: 500;
-				letter-spacing: 0px;
-				color: rgb(99, 98, 114);
-				vertical-align: middle;
-				justify-content: flex-start;
-				width: 532px;
-				align-items: center;
-				line-height: 20px;
-				height: 40px;
-				left: calc((50% - 266px) + 266px);
-				top: 277px;
-			}
- 
- 
-			/* Rectangle */
-			#txtEmail {
-				border-radius: 4px;
-				box-shadow: rgb(150, 150, 150) 0px 0px 0px 1px inset;
-				left: 683px;
-				right: 312px;
-				bottom: 261px;
-				height: 45px;
-			}
- 
-			/* ↳ ✏️ Value */
-			#n17_37 {
-				font-family: Poppins;
-				font-size: 14px;
-				font-weight: 300;
-				letter-spacing: 0px;
-				color: rgb(60, 59, 77);
-				vertical-align: middle;
-				justify-content: flex-start;
-				width: 272px;
-				align-items: center;
-				line-height: 22px;
-				height: 22px;
-				left: 704px;
-				top: 396px;
-			}
- 
-		/* Label */
-		#n17_38 {
-			font-family: Poppins;
-			font-size: 14px;
-			font-weight: 500;
-			letter-spacing: 0px;
-			color: rgb(14, 39, 71);
-			vertical-align: middle;
-			text-align: center;
-			justify-content: center;
-			width: 81px;
-			transform: translate(0px, -2.38667px);
-			line-height: 22px;
-			height: 22px;
-			left: 683px;
-			top: 348px;
-		}
- 
-		/* Label */
-		#n22_5 {
-			font-family: Poppins;
-			font-size: 18px;
-			font-weight: 500;
-			letter-spacing: 0px;
-			color: rgb(191, 33, 75);
-			vertical-align: middle;
-			text-align: center;
-			justify-content: center;
-			width: 184px;
-			transform: translate(0px, -0.386666px);
-			line-height: 22px;
-			height: 22px;
-			left: 683px;
-			top: 167px;
-		}
- 
-	/* Rectangle 2 */
-	#n22_2 {
-		background-image: url("https://s3-alpha-sig.figma.com/img/6376/c2fa/cf71ababec367cb9e54df806380a5fb4?Expires=1572825600&Signature=XlVfSfMejj0eGsKqFfUy40A1nxWqjzsngzK2EPHbnGhjRPFLAkcCGP~LFDeIJUtpMi9NhUkvy-03lD0K7x2TTAQs~IoVY27T3yKQ0dEamOZsm6D1RTjX3IV8Rj-31ORHdyxEc~~e7eR~8WOIIDeIw0oOfmhFoNOq-zpfW53aRPINBYh99PmO3FZ7swOgNSJMAP14C2WWUlxr9zthUCUzxyYIQvCgY4tuf-LHryWRc93ZJMHglP0Tgf1bmNMlRqad~SLTyFUPyPDoXTJj7ljvNrC00Wj8NP56AVxt01Fmgfi3rLPvgA5MPWkVymVt3CuHwZPbGUelQOjHyfVIBCVYrw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+	body {
+		font-family: "Lato", sans-serif;
+	}
+		
+	.main-head{
+		height: 150px;
+		background: #FFF;
+	   
+	}
+	
+	.usersidenav {
+		/* height: 100%; */
+		/* background-color: #000; */
+		background-image: url("https://devopslabstorage.s3.ap-south-1.amazonaws.com/userpage.jpeg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;
-		left: -9px;
+		overflow-x: hidden;
+		padding-top: 20px;
+		/* left: -9px;
 		width: 576.942px;
-		top: -144px;
-		height: 1205.38px;
+		top: -144px; */
+		height: 1205.38px
 	}
 
-		/* Rectangle 1 */
-		#btnContinue {
-			background: rgb(191, 33, 75);
-			border-radius: 60px;
-			left: 683px;
-			width: 148px;
-			top: 475px;
-			height: 48px;
-		}
- 
-		/* Continue */
-		#n22_8 {
-			font-family: Poppins;
-			font-size: 14px;
-			font-weight: 500;
-			letter-spacing: 0px;
-			color: rgb(255, 255, 255);
-			vertical-align: middle;
-			text-align: center;
-			justify-content: center;
-			width: 77px;
-			align-items: center;
-			line-height: 36px;
-			height: 20px;
-			left: 715px;
-			top: 489px;
-		}
-
-
-	/** Password Page **/
-
-
-	#n22_67 {
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		background: rgb(255, 255, 255);
-	}
- 
-			/* Welcome Back! */
-			#n22_70 {
-				font-family: Poppins;
-				font-size: 28px;
-				font-weight: 500;
-				letter-spacing: 0px;
-				color: rgb(14, 39, 71);
-				vertical-align: middle;
-				justify-content: flex-start;
-				width: 572px;
-				align-items: center;
-				line-height: 36px;
-				height: 74px;
-				left: calc((50% - 286px) + 286px);
-				top: 203px;
-			}
- 
-			/* Welcome Back! */
-			#n22_71 {
-				font-family: Poppins;
-				font-size: 14px;
-				font-weight: 500;
-				letter-spacing: 0px;
-				color: rgb(99, 98, 114);
-				vertical-align: middle;
-				justify-content: flex-start;
-				width: 532px;
-				align-items: center;
-				line-height: 20px;
-				height: 40px;
-				left: calc((50% - 266px) + 266px);
-				top: 282px;
-			}
- 
- 
-			/* Rectangle */
-			#n22_73 {
-				border-radius: 4px;
-				box-shadow: rgb(150, 150, 150) 0px 0px 0px 1px inset;
-				left: 683px;
-				right: 312px;
-				bottom: 261px;
-				height: 45px;
-			}
- 
-			/* ↳ ✏️ Value */
-			#n22_74 {
-				font-family: Poppins;
-				font-size: 14px;
-				font-weight: 300;
-				letter-spacing: 0px;
-				color: rgb(60, 59, 77);
-				vertical-align: middle;
-				justify-content: flex-start;
-				width: 272px;
-				align-items: center;
-				line-height: 22px;
-				height: 22px;
-				left: 704px;
-				top: 396px;
-			}
- 
-		/* Label */
-		#n22_75 {
-			font-family: Poppins;
-			font-size: 14px;
-			font-weight: 500;
-			letter-spacing: 0px;
-			color: rgb(14, 39, 71);
-			vertical-align: middle;
-			text-align: center;
-			justify-content: center;
-			width: 69px;
-			transform: translate(0px, -2.38667px);
-			line-height: 22px;
-			height: 22px;
-			left: 683px;
-			top: 348px;
-		}
- 
-		/* Label */
-		#n22_76 {
-			font-family: Poppins;
-			font-size: 18px;
-			font-weight: 500;
-			letter-spacing: 0px;
-			color: rgb(191, 33, 75);
-			vertical-align: middle;
-			text-align: center;
-			justify-content: center;
-			width: 120px;
-			transform: translate(0px, -0.386666px);
-			line-height: 22px;
-			height: 22px;
-			left: 683px;
-			top: 167px;
-		}
- 
-	/* Rectangle 2 */
-	#n22_77 {
-		background-image: url("https://s3-alpha-sig.figma.com/img/21a4/2e21/f6ab499f1c57d7809e0279ea73dc2a87?Expires=1572825600&Signature=etOXBNlHHtercJ37d8zKazUcahhL-nn-BHHfkPWdA9ylp0REyarZVAFaAZ11~6V8yPgieHs7p44X2n24qKSBFbrJGhmltwIIO4OeXBnSWqR9D9Y6PnhSaoNOl5kZ4gHItJF~cpRTZTNb8OaD80lCm23NW1jfFcjal~LFBnc4XfnP49b6zW0rMavIS4NWMCFz68nDhdc261Rzr~nH21PcFlL8yS72Dcxt~0B22Ss-uaqOoq872cPmH~nF1tZR9JP6TudPSd7EddRxq7DwFIYg7PgaE6Vf1SDcquWgTHfIEzXmPrjItHf0srEEF~IaAxeGqGOx8M3WfQpLiTzJZebSfw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+	.pwdsidenav {
+		/* height: 100%; */
+		/* background-color: #000; */
+		background-image: url("https://devopslabstorage.s3.ap-south-1.amazonaws.com/pwdpage.jpeg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;
-		left: -9px;
+		overflow-x: hidden;
+		padding-top: 20px;
+		/* left: -9px;
 		width: 576.942px;
-		top: -144px;
-		height: 1205.38px;
+		top: -144px; */
+		height: 1205.38px
 	}
- 
- 
-		/* Rectangle 1 */
-		#btnStart {
-			background: rgb(191, 33, 75);
-			border-radius: 60px;
-			left: 683px;
-			width: 148px;
-			top: 475px;
-			height: 48px;
-		}
- 
-		/* Let’s Start */
-		#n22_80 {
-			font-family: Poppins;
-			font-size: 14px;
-			font-weight: 500;
-			letter-spacing: 0px;
-			color: rgb(255, 255, 255);
-			vertical-align: middle;
-			text-align: center;
-			justify-content: center;
-			width: 77px;
-			align-items: center;
-			line-height: 36px;
-			height: 20px;
-			left: 715px;
-			top: 489px;
+
+	#correct_email, #correct_pwd{
+		/* background-image: url("https://devopslabstorage.s3.ap-south-1.amazonaws.com/icons8-checked-48.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center; */
+		width: 24px;
+		display: inline-block;
+	}
+	
+	.main {
+		padding: 0px 40px;
+	}
+
+	#n22_5, #divusername{
+		/* font-family: Poppins; */
+		font-size: 20px;
+		/* font-weight: 500; */
+		letter-spacing: 0px;
+		color: rgb(191, 33, 75);
+		vertical-align: middle;
+		justify-content: center;
+		width: 200px;
+		transform: translate(0px, -0.386666px);
+		line-height: 22px;
+		height: 22px;
+		left: 683px;
+		top: 167px;
+		font-weight: bold;
+		font-style: italic;
+		padding-bottom: 65px;
+	}
+
+	#n7_48, #n8_48{
+		/* font-family: Poppins; */
+		font-size: 35px;
+		font-weight: bold;
+		letter-spacing: 0px;
+		color: rgb(14, 39, 71);
+		width: 700px;
+		line-height: 36px;
+		height: 70px;
+		left: calc((50% - 286px) + 286px);
+		top: 203px;
+	}
+
+	#n8_48 {
+		height: 80px;
+	}
+
+	#n7_49, #n8_49 {
+		/* font-family: FontAwesome; */
+		font-size: 14px;
+		font-weight: bold;
+		letter-spacing: 0px;
+		color: rgb(99, 98, 114);
+		vertical-align: middle;
+		justify-content: flex-start;
+		width: 532px;
+		align-items: center;
+		line-height: 20px;
+		font-style: italic;
+		height: 66px;
+		left: calc((50% - 266px) + 266px);
+		top: 277px;
+		padding-bottom: 30px
+	}
+
+	/* Label */
+	#n17_38 , #n18_38{
+		/* font-family: Poppins; */
+		font-size: 14px;
+		font-weight: bold;
+		letter-spacing: 0px;
+		color: rgb(14, 39, 71);
+		transform: translate(0px, -2.38667px);
+		line-height: 22px;
+		height: 30px;
+		font-style: italic;
+	}
+
+	#btnContinue {
+		background: rgb(191, 33, 75);
+		border-radius: 60px;
+		left: 683px;
+		width: 148px;
+		top: 475px;
+		height: 48px;
+		color: #fff;
+	}
+
+	#btnStart {
+		background: rgb(191, 33, 75);
+		border-radius: 60px;
+		left: 683px;
+		width: 148px;
+		top: 475px;
+		height: 48px;
+		color: #fff;
+	}
+
+	#btnStart:disabled {
+		color: grey;
+		cursor:not-allowed
+	}
+
+	#btnContinue:disabled {
+		color: grey;
+		cursor:not-allowed
+	}
+	.form-control{
+		height: 50px;
+		border-radius : 0.50rem
+	}
+	
+	@media screen and (max-height: 450px) {
+		.usersidenav, .pwdsidenav {padding-top: 15px;}
+	}
+	
+	@media screen and (max-width: 450px) {
+		.login-form{
+			margin-top: 10%;
 		}
 	
-	/* 5 - opsLab - reset password */
-#n22_103 {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	background: rgb(255, 255, 255);
-}
- 
- 
- 
-			/* Welcome Back! */
-			#n22_106 {
-				font-family: Poppins;
-				font-size: 28px;
-				font-weight: 500;
-				letter-spacing: 0px;
-				color: rgb(14, 39, 71);
-				vertical-align: middle;
-				text-align: center;
-				justify-content: center;
-				width: 332px;
-				align-items: center;
-				line-height: 36px;
-				height: 42px;
-				left: calc((50% - 166px) + -10px);
-				top: 211px;
-			}
- 
-			/* Welcome Back! */
-			#n22_107 {
-				font-family: Poppins;
-				font-size: 18px;
-				font-weight: 500;
-				letter-spacing: 0px;
-				color: rgb(191, 33, 75);
-				vertical-align: middle;
-				text-align: center;
-				justify-content: center;
-				width: 532px;
-				align-items: center;
-				line-height: 22px;
-				height: 40px;
-				left: calc((50% - 266px) + 0px);
-				top: 253px;
-			}
- 
- 
-			/* Rectangle */
-			#n22_109 {
-				border-radius: 4px;
-				box-shadow: rgb(191, 33, 75) 0px 0px 0px 1px inset;
-				left: 498px;
-				right: 497px;
-				bottom: 288px;
-				height: 45px;
-			}
- 
-		/* Label */
-		#n22_110 {
-			font-family: Poppins;
-			font-size: 14px;
-			font-weight: 500;
-			letter-spacing: 0px;
-			color: rgb(14, 39, 71);
-			vertical-align: middle;
-			text-align: center;
-			justify-content: center;
-			width: 77px;
-			transform: translate(0px, -2.38667px);
-			line-height: 22px;
-			height: 22px;
-			left: 645px;
-			top: 321px;
+		.register-form{
+			margin-top: 10%;
 		}
- 
- 
-			/* Rectangle 1 */
-			#n22_115 {
-				background: rgb(191, 33, 75);
-				border-radius: 60px;
-				left: 609px;
-				width: 148px;
-				top: 430px;
-				height: 48px;
-			}
- 
-			/* Reset now */
-			#n22_116 {
-				font-family: Poppins;
-				font-size: 14px;
-				font-weight: 500;
-				letter-spacing: 0px;
-				color: rgb(255, 255, 255);
-				vertical-align: middle;
-				text-align: center;
-				justify-content: center;
-				width: 77px;
-				align-items: center;
-				line-height: 36px;
-				height: 20px;
-				left: 641px;
-				top: 444px;
-			}
- 
-	/* cherry-payment-processed 1 */
-	#n22_166 {
-		background-image: url("https://s3-alpha-sig.figma.com/img/e618/b635/8de7d5ec1b267d1690f502db67742b40?Expires=1572825600&Signature=QyIu4aX5s~9hr1rPT4NMobW88bKO9xoajIUdrkbzLKFoa4suXuZahwwgD4nm17gIb8tmbTMvLhRIegIrWwyRD3KKbAXVdyhQyNVEHNTFzpr71Sbe7fQuwZONKBNLJT4ZKCf9xOwl4QyNagw3cckHik2Eo3MT6C3YB397ILPAw5WkBsZOItsjUl1Ltb53R8H0nIeAIssn97YrCqsriIt0iTPsNsj1OAT3TAytBI2y8vtjeOnyUKXg4Ipd3de4mBAdxPmcLppJqDU7AwQQua6LI5xz7hiwgLlrvW-DIpMGaKFkpNcozeYzlEYfYL-i79w~ZeUl7Qk7xt2fVDMdLLB0pQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center center;
-		left: 1012px;
-		width: 354px;
-		top: 273px;
-		height: 437px;
+	}
+	
+	@media screen and (min-width: 768px){
+		.main{
+			margin-left: 40%; 
+		}
+	
+		.usersidenav, .pwdsidenav{
+			width: 35%;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+		}
+	
+		.login-form{
+			margin-top: 35%;
+		}
+	
+		.register-form{
+			margin-top: 20%;
+		}
+	}
+	
+	
+	.login-main-text{
+		margin-top: 20%;
+		padding: 60px;
+		color: #fff;
+	}
+	
+	.login-main-text h2{
+		font-weight: 300;
+	}
+	
+	.btn-black{
+		background-color: #000 !important;
+		color: #fff;
 	}

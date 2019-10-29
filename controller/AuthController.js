@@ -4,6 +4,7 @@ const User 			 = require('../models/user')
 const bcrypt 		 = require('bcryptjs')
 const jwt 			 = require('jsonwebtoken')
 const jwtmodule 	 = require('../jwt/jwtmodule')
+const redisServer 		 = require('../redisprocess')
 
 var schedule = require('node-schedule');
 
@@ -27,6 +28,7 @@ exports.validateUserName = function(req,res){
 			res.status(200).send({msg : 'Success', user : user})
 		}
 	}).catch((err) => {
+		console.log(err)
 		res.status(400).send({msg: err})
 	})
 }
@@ -68,14 +70,18 @@ exports.checkLogin = function(req,res){
 					//console.log(val)
 				})
 
- 
-				var j = schedule.scheduleJob('15 * * * * *', function(){
-				console.log('These will be executed if second is 15. Eg:7m 15s , 78 15s ');
-				});
+				// schedule.scheduleJob('15 * * * * *', function(){
+				// 	console.log('These will be executed if second is 15. Eg:7m 15s , 78 15s ');
+				// 	// redis.startRedis(function(){
+				// 	// 	redis.storeDataAsString("newString" , "mytesting")
+				// 	// });
+				// 	//redis.startRedis();
+				// });
 
+				// redisServer.storeDataAsString("newString" , "mytesting")
 
 				req.session.username = user.fullname
-				res.cookie('authtoken' , token , {httpOnly : true , secure : true})
+				res.cookie('auth_token' , token , {httpOnly : true})
 
 				res.redirect('/dashboard')			
 			}
@@ -87,10 +93,4 @@ exports.checkLogin = function(req,res){
 	}).catch((err) => {
 		res.status(400).send({msg: err})
 	})
-}
-
-exports.dashBoard = function(req,res){
-
-	console.log('dsas')
-	res.render('main/dashboard')
 }

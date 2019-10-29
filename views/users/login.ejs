@@ -3,107 +3,66 @@
         <%- include('../partials/header') -%>
     </head>
     <body> 
-        <div id= 'userpage'>
-        <!-- Rectangle 2 -->
-            <div class="left top rectangle" id="n22_2"></div>
-        <!-- 1 - OpsLab - Landing -->
-            <div class="frame" id="n1_2">
-            <!-- Group 10 -->
-            <div>
-                <p style="color:red;" id="validationerrors"> </p>
+        <!-- userpage -->
+        <div id="userpage">
+            <div class="usersidenav"></div>
+         <div class="main">
+            <div class="col-md-6 col-sm-12">
+               <div class="login-form">
+                    <div id="n22_5">Welcome to OpsLab</div>
+                    <div id="n22_3">       
+                        <div id="n7_48">Fix your Application development easily</div>             
+                        <div id="n7_49">Continuously detect issues in your delivery pipeline, increase your data validation coverage and easily improve your data quality. </div>
+                    </div>
+                      
+                  <!-- <form> -->
+                     <div class="form-group">
+                         <!-- <div style="width:100%"> -->
+                            <div id="n17_38">Work email 
+                                <img id="correct_email" src="https://devopslabstorage.s3.ap-south-1.amazonaws.com/icons8-checked-48.png"></img>                                
+                            </div>
+                            <!-- <img id="correct_email" src="https://devopslabstorage.s3.ap-south-1.amazonaws.com/icons8-checked-48.png"></img> -->
+                        <!-- </div> -->
+                        <!-- <div id="correct_email"></div> -->
+                        <input type="text" id="txtEmail" class="form-control" placeholder="textname@gmail.com">
+                     </div>
+                    <button id="btnContinue" disabled>Continue</button>
+                  <!-- </form> -->
+               </div>
             </div>
-            <div class="group" id="n22_6">
-                <!-- Group 9 -->
-                <!-- Label -->
-                <div class="left top text" id="n22_5">Welcome to OpsLab</div>
-                <div class="group" id="n22_3">
-                    <!-- Welcome Back! -->
-                    <div class="center top text" id="n7_48">Fix your Application development easily</div>
-                    <!-- Welcome Back! -->
-                    <div class="center top text" id="n7_49">Continuously detect issues in your delivery pipeline, increase your data validation coverage and easily improve your data quality. </div>
-                </div>
-                <!-- Group 5 -->
-                <!-- Label -->
-                <div class="left top text" id="n17_38">Work email</div>
-                <div class="group" id="n17_35">
-                    <!-- Rectangle -->
-                    <input type="text" placeholder="Enter Email here..." 
-                    class="left_right bottom rectangle" id="txtEmail" />
-                </div>
-            
-            </div>
-        
-            <!-- Group 11 -->
-            <div class="group" id="n22_9">
-                <!-- Rectangle 1 -->
-                <button class="left top rectangle" id="btnContinue" disabled>Continue</button>
-                <!-- Continue -->
-                <!-- <button class="left top text" id="n22_8"></button> -->
-            </div>
-        </div>
-    </div>
-    <div id='pwdpage' style="display: none" >  
-        <!-- Label -->
-        <label class="left top text" id="n22_76">Hi Testname!</label>
-        <div class="group" id="n22_69">
-            <!-- Welcome Back! -->
-            <div class="center top text" id="n22_70">Build a resilient software every single time</div>
-            <!-- Welcome Back! -->
-            <div class="center top text" id="n22_71">Error, crash and performance monitoring software. Diagnose issues with greater speed.</div>
-        </div> 
-        <!-- Label -->
-        <div class="left top text" id="n22_75">Password</div>
-        <a href="#" id="aforpwd" style="display: none">Forget Your Password?</a>
-        <!-- Group 5 -->
-        <div class="group" id="n22_72">
-            <!-- Rectangle -->
-            <input type="password" placeholder class="left_right bottom rectangle" id="txtPassword">
-        </div>
-         <div class="group" id="n22_78">
-        <!-- Rectangle 1 -->
-            <button class="left top rectangle" id="btnStart" disabled>Let's Start</button>
-            <!-- Let’s Start -->  
-        </div>
-        <!-- Rectangle 2 -->
-        <div class="left top rectangle" id="n22_77"></div>
-        <!-- Group 11 -->
-       
-    </div>
-
-    <div id="forgetpwdpage" style="display: none">
-        <!-- 5 - opsLab - reset password -->
-        <div class="frame" id="n22_103">
-            <!-- Group 13 -->
-            <div class="group" id="n22_123">
-                <!-- Group 9 -->
-                <div class="group" id="n22_105">
-                    <!-- Welcome Back! -->
-                    <div class="center top text" id="n22_106">Forgot your password</div>
-                    <!-- Welcome Back! -->
-                    <div class="center top text" id="n22_107">That’s Okay. We all forget our password somwtimes</div>
-                </div>
-                <!-- Group 5 -->
-                <div class="group" id="n22_108">
-                    <!-- Rectangle -->
-                    <div class="left_right bottom rectangle" id="n22_109"></div>
-                </div>
-                <!-- Label -->
-                <div class="left top text" id="n22_110">Your email</div>
-                <!-- Group 11 -->
-                <div class="group" id="n22_114">
-                    <!-- Rectangle 1 -->
-                    <div class="left top rectangle" id="n22_115"></div>
-                    <!-- Reset now -->
-                    <div class="left top text" id="n22_116">Reset now</div>
-                </div>
-            </div>
-            <!-- cherry-payment-processed 1 -->
-            <div class="left top rectangle" id="n22_166"></div>
-            <!-- cherry-searching 1 -->
-            <div class="left top rectangle" id="n22_169"></div>
+         </div>
         </div>
 
-    </div>
+        <!-- password page-->
+        <div id="pwdpage">
+                <div class="pwdsidenav">
+                    <!-- <div class="login-main-text">
+                    <h2>Application<br> Login Page</h2>
+                    <p>Login or register from here to access.</p>
+                    </div> -->
+                </div>
+             <div class="main">
+                <div class="col-md-6 col-sm-12">
+                   <div class="login-form">
+                        <div id="divusername">Hi! Testname</div>
+                        <div id="n24_3">       
+                            <div id="n8_48">Build a resilient software every single time</div>             
+                            <div id="n8_49">Error, crash and performance monitoring software. Diagnose issues with greater speed.</div>
+                        </div>
+                          
+                      <!-- <form> -->
+                         <div class="form-group">
+                            <div id="n18_38">Password
+                                <img id="correct_pwd" src="https://devopslabstorage.s3.ap-south-1.amazonaws.com/icons8-checked-48.png"></img>
+                            </div>
+                            <input type="password" placeholder = "***********" class="form-control" id="txtPassword">
+                         </div>
+                         <button id="btnStart" disabled>Let's Start</button>
+                      <!-- </form> -->
+                   </div>
+                </div>
+             </div>
+            </div>
     </body>
 </html>
 
