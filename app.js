@@ -12,8 +12,42 @@ const apiRoute= require('./routes/api')
 const uuid = require('uuid/v4')
 const config = require('./config.json')
 const app = express();
+
+//var cors = require('cors');
+
+/*
+var AWS = require('aws-sdk'); 
+
+AWS.config = new AWS.Config();
+AWS.config.accessKeyId = "AKIARJ23SX375NCFN7F3";
+AWS.config.secretAccessKey = "CZzNneD7qEhGC5DahsA7MNL4ApMI87dCsaWarrvQ+";
+AWS.config.region = "us-east-2";
+
+var ec2 = new AWS.EC2();
+
+console.log(ec2);
+
+
+/*var params = {
+  InstanceIds: [  
+    'i-0b6ff5de7bb425cf9',
+  ],
+  Force: true
+};
+ec2.stopInstances(params, function(err, data) {
+  if (err) console.log(err, err.stack); // an error occurred
+  else     console.log(data);           // successful response
+});*/
+
+
+
+
+const auth = require('./controller/AuthenticationController');
+const service = require('./controller/ServiceController');
+
 // var redis = require('redis');
 // var client = redis.createClient();
+
 
 var connString = config.development.dialect + '://' 
 + config.development.host + ':' 
@@ -64,6 +98,10 @@ function(err, client) {
 
 //Routing
 app.use('/' , apiRoute) //.get(auth.signin);
+
+app.route('/getServer/:slug').get(service.getServer);
+
+
 
 app.listen(3200,function(){
 	console.log("Server running");

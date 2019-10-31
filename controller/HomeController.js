@@ -4,10 +4,10 @@ exports.signin = function(req, res){
 	res.json("signin");
 }
 
-exports.dashBoard = function(req,res){
+exports.dashboard = function(req,res){
 	console.log('session' + req.session.username)
 	console.log('auth cookie' , req.cookies.auth_token)
 	
-	res.render('main/dashboard')
+	res.render('dashboard')
 }
 

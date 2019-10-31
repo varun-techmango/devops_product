@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DevOps Automation</title>
+    <% include styles.ejs %>
+</head>
+
+<body>
+<div class="page-wrapper chiller-theme toggled">
+  
+  <% include sidebar.ejs %>
+
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container-fluid">
+      <h2>Dashboard</h2>
+      <hr>
+      <!-- Dashboard cards-->
+      <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="card border-info mx-sm-1 p-3">
+                <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-database" aria-hidden="true"></span></div>
+                <div class="text-center mt-3"><h4>Servers</h4></div>
+                <div class="text-center mt-2"><h1>234</h1></div>
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <span class="badge badge-pill badge-danger">Inactive : 3</span>
+                  </div>
+                  <div class="col-md-6">  
+                    <span class="badge badge-pill badge-success">Active : 3</span>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-info mx-sm-1@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap'); p-3">
+                <div class="card border-info shadow text-info p-3 my-card"><span class="fa fa-tasks" aria-hidden="true"></span></div>
+                <div class="text-center mt-3"><h4>Jobs</h4></div>
+                <div class="text-center mt-2"><h1>9332</h1></div>
+
+                 <div class="row">
+                  <div class="col-md-6">
+                    <span class="badge badge-pill badge-danger">Failed : 3</span>
+                  </div>
+                  <div class="col-md-6">  
+                    <span class="badge badge-pill badge-success">Success : 3</span>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-info mx-sm-1 p-3">
+                <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-users" aria-hidden="true"></span></div>
+                <div class="text-center mt-3"><h4>Users</h4></div>
+                <div class="text-center mt-2"><h1>346</h1></div>
+
+                 <div class="row">
+                  <div class="col-md-6">
+                    <span class="badge badge-pill badge-danger">Inactive : 3</span>
+                  </div>
+                  <div class="col-md-6">  
+                    <span class="badge badge-pill badge-success">Active : 3</span>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-info mx-sm-1 p-3">
+                <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-folder" aria-hidden="true"></span></div>
+                <div class="text-center mt-3"><h4>Applications</h4></div>
+                <div class="text-center mt-2"><h1>346</h1></div>
+
+                 <div class="row">
+                  <div class="col-md-6">
+                    <span class="badge badge-pill badge-danger">Inactive : 3</span>
+                  </div>
+                  <div class="col-md-6">  
+                    <span class="badge badge-pill badge-success">Active : 3</span>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+      </div>
+      <!-- Dashboard cards-->
+
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+        </div>
+      </div>
+      
+      
+    </div>
+
+  </main>
+  <!-- page-content" -->
+</div>
+<!-- page-wrapper -->
+
+<% include scripts.ejs %>
+
+
+<!-- Only for Dashboard -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    Highcharts.chart('container', {
+      chart: {
+          type: 'bar',
+          backgroundColor:'#1d1b41',
+      },
+      title: {
+          text: 'Server Resource Monitoring'
+      },
+      
+      xAxis: {
+          categories: ['Instance1', 'Instance2'],
+          title: {
+              text: null
+          }
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: 'Server Load',
+              align: 'high'
+          },
+          labels: {
+              overflow: 'justify'
+          }
+      },
+      tooltip: {
+          valueSuffix: ' Bytes'
+      },
+      plotOptions: {
+          bar: {
+              dataLabels: {
+                  enabled: true
+              }
+          }
+      },
+      legend: {
+          layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'top',
+          x: 10,
+          y: 30,
+          floating: true,
+          backgroundColor: '#FFFFFF'
+      },
+      credits: {
+          enabled: false
+      },
+      series: [{
+          name: 'Memory (RAM)',
+          data: [107, 31]
+      }, {
+          name: 'SWAP',
+          data: [133, 156]
+      }, {
+          name: 'Cache',
+          data: [814, 841]
+      }]
+  });
+  });
+</script>
+
+
+
+
+</body>
+</html>
