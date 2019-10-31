@@ -1,0 +1,14 @@
+{
+    "data": [{
+        "model" : "Role",
+        "documents" : [
+            {
+            "rolename" : "Admin",
+            "description" : "provide all permission"
+            },
+            {
+                "rolename" : "Lead",
+                "description" : "provide all permission"
+            }]
+    }] 
+}

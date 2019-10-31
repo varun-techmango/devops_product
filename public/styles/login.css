@@ -1,0 +1,206 @@
+
+	body {
+		font-family: "Lato", sans-serif;
+	}
+		
+	.main-head{
+		height: 150px;
+		background: #FFF;
+	   
+	}
+	
+	.usersidenav {
+		/* height: 100%; */
+		/* background-color: #000; */
+		background-image: url("https://devopslabstorage.s3.ap-south-1.amazonaws.com/userpage.jpeg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		overflow-x: hidden;
+		padding-top: 20px;
+		/* left: -9px;
+		width: 576.942px;
+		top: -144px; */
+		height: 1205.38px
+	}
+
+	.pwdsidenav {
+		/* height: 100%; */
+		/* background-color: #000; */
+		background-image: url("https://devopslabstorage.s3.ap-south-1.amazonaws.com/pwdpage.jpeg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		overflow-x: hidden;
+		padding-top: 20px;
+		/* left: -9px;
+		width: 576.942px;
+		top: -144px; */
+		height: 1205.38px
+	}
+
+	#correct_email, #correct_pwd{
+		/* background-image: url("https://devopslabstorage.s3.ap-south-1.amazonaws.com/icons8-checked-48.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center; */
+		width: 24px;
+		display: inline-block;
+	}
+	
+	.main {
+		padding: 0px 40px;
+	}
+
+	#n22_5, #divusername{
+		/* font-family: Poppins; */
+		font-size: 20px;
+		/* font-weight: 500; */
+		letter-spacing: 0px;
+		color: rgb(191, 33, 75);
+		vertical-align: middle;
+		justify-content: center;
+		width: 200px;
+		transform: translate(0px, -0.386666px);
+		line-height: 22px;
+		height: 22px;
+		left: 683px;
+		top: 167px;
+		font-weight: bold;
+		font-style: italic;
+		padding-bottom: 65px;
+	}
+
+	#n7_48, #n8_48{
+		/* font-family: Poppins; */
+		font-size: 35px;
+		font-weight: bold;
+		letter-spacing: 0px;
+		color: rgb(14, 39, 71);
+		width: 700px;
+		line-height: 36px;
+		height: 70px;
+		left: calc((50% - 286px) + 286px);
+		top: 203px;
+	}
+
+	#n8_48 {
+		height: 80px;
+	}
+
+	#n7_49, #n8_49 {
+		/* font-family: FontAwesome; */
+		font-size: 14px;
+		font-weight: bold;
+		letter-spacing: 0px;
+		color: rgb(99, 98, 114);
+		vertical-align: middle;
+		justify-content: flex-start;
+		width: 532px;
+		align-items: center;
+		line-height: 20px;
+		font-style: italic;
+		height: 66px;
+		left: calc((50% - 266px) + 266px);
+		top: 277px;
+		padding-bottom: 30px
+	}
+
+	/* Label */
+	#n17_38 , #n18_38{
+		/* font-family: Poppins; */
+		font-size: 14px;
+		font-weight: bold;
+		letter-spacing: 0px;
+		color: rgb(14, 39, 71);
+		transform: translate(0px, -2.38667px);
+		line-height: 22px;
+		height: 30px;
+		font-style: italic;
+	}
+
+	#btnContinue {
+		background: rgb(191, 33, 75);
+		border-radius: 60px;
+		left: 683px;
+		width: 148px;
+		top: 475px;
+		height: 48px;
+		color: #fff;
+	}
+
+	#btnStart {
+		background: rgb(191, 33, 75);
+		border-radius: 60px;
+		left: 683px;
+		width: 148px;
+		top: 475px;
+		height: 48px;
+		color: #fff;
+	}
+
+	#btnStart:disabled {
+		color: grey;
+		cursor:not-allowed
+	}
+
+	#btnContinue:disabled {
+		color: grey;
+		cursor:not-allowed
+	}
+	.form-control{
+		height: 50px;
+		border-radius : 0.50rem
+	}
+	
+	@media screen and (max-height: 450px) {
+		.usersidenav, .pwdsidenav {padding-top: 15px;}
+	}
+	
+	@media screen and (max-width: 450px) {
+		.login-form{
+			margin-top: 10%;
+		}
+	
+		.register-form{
+			margin-top: 10%;
+		}
+	}
+	
+	@media screen and (min-width: 768px){
+		.main{
+			margin-left: 40%; 
+		}
+	
+		.usersidenav, .pwdsidenav{
+			width: 35%;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+		}
+	
+		.login-form{
+			margin-top: 35%;
+		}
+	
+		.register-form{
+			margin-top: 20%;
+		}
+	}
+	
+	
+	.login-main-text{
+		margin-top: 20%;
+		padding: 60px;
+		color: #fff;
+	}
+	
+	.login-main-text h2{
+		font-weight: 300;
+	}
+	
+	.btn-black{
+		background-color: #000 !important;
+		color: #fff;
+	}

@@ -1,0 +1,13 @@
+{
+    "data": [{
+        "model": "User",
+        "documents": [{
+            "fullname": "jeyalakshmi",
+            "username": "jeys",
+            "password": "pwd",
+            "email" : "jey@tts.net",
+            "roleid" : "1"
+        }]
+    }
+]
+}

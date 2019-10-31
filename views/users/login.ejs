@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <%- include('../partials/header') -%>
+    </head>
+    <body> 
+        <!-- userpage -->
+        <div id="userpage">
+            <div class="usersidenav"></div>
+         <div class="main">
+            <div class="col-md-6 col-sm-12">
+               <div class="login-form">
+                    <div id="n22_5">Welcome to OpsLab</div>
+                    <div id="n22_3">       
+                        <div id="n7_48">Fix your Application development easily</div>             
+                        <div id="n7_49">Continuously detect issues in your delivery pipeline, increase your data validation coverage and easily improve your data quality. </div>
+                    </div>
+                      
+                  <!-- <form> -->
+                     <div class="form-group">
+                         <!-- <div style="width:100%"> -->
+                            <div id="n17_38">Work email 
+                                <img id="correct_email" src="https://devopslabstorage.s3.ap-south-1.amazonaws.com/icons8-checked-48.png"></img>                                
+                            </div>
+                            <!-- <img id="correct_email" src="https://devopslabstorage.s3.ap-south-1.amazonaws.com/icons8-checked-48.png"></img> -->
+                        <!-- </div> -->
+                        <!-- <div id="correct_email"></div> -->
+                        <input type="text" id="txtEmail" class="form-control" placeholder="textname@gmail.com">
+                     </div>
+                    <button id="btnContinue" disabled>Continue</button>
+                  <!-- </form> -->
+               </div>
+            </div>
+         </div>
+        </div>
+
+        <!-- password page-->
+        <div id="pwdpage">
+                <div class="pwdsidenav">
+                    <!-- <div class="login-main-text">
+                    <h2>Application<br> Login Page</h2>
+                    <p>Login or register from here to access.</p>
+                    </div> -->
+                </div>
+             <div class="main">
+                <div class="col-md-6 col-sm-12">
+                   <div class="login-form">
+                        <div id="divusername">Hi! Testname</div>
+                        <div id="n24_3">       
+                            <div id="n8_48">Build a resilient software every single time</div>             
+                            <div id="n8_49">Error, crash and performance monitoring software. Diagnose issues with greater speed.</div>
+                        </div>
+                          
+                      <!-- <form> -->
+                         <div class="form-group">
+                            <div id="n18_38">Password
+                                <img id="correct_pwd" src="https://devopslabstorage.s3.ap-south-1.amazonaws.com/icons8-checked-48.png"></img>
+                            </div>
+                            <input type="password" placeholder = "***********" class="form-control" id="txtPassword">
+                         </div>
+                         <button id="btnStart" disabled>Let's Start</button>
+                      <!-- </form> -->
+                   </div>
+                </div>
+             </div>
+            </div>
+    </body>
+</html>
+
+<%- include('../partials/scripts') %>
+<%- include('../partials/login_script') %>
