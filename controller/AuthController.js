@@ -4,7 +4,6 @@ const User 			 = require('../models/user')
 const bcrypt 		 = require('bcryptjs')
 const jwt 			 = require('jsonwebtoken')
 const jwtmodule 	 = require('../jwt/jwtmodule')
-const redisServer 		 = require('../redisprocess')
 
 var schedule = require('node-schedule');
 
@@ -62,12 +61,9 @@ exports.checkLogin = function(req,res){
 		user.comparePassword(req.body.password, (err, isMatch) => {
 			console.log("isMatch" + isMatch)
 			if (isMatch && !err) {		
-				var token = jwtmodule.sign(JSON.parse(JSON.stringify(user)))
-				// console.log(JSON.parse(JSON.stringify(user)))
-				// console.log(token)		
+				var token = jwtmodule.sign(JSON.parse(JSON.stringify(user)))	
 				
 				jwtmodule.verify(token , function(err,val) {
-					//console.log(val)
 				})
 
 				// schedule.scheduleJob('15 * * * * *', function(){
