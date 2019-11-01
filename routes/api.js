@@ -3,6 +3,7 @@ const router = express.Router();
 const datasetup = require('../controller/DataSetupController')
 const auth = require('../controller/AuthenticationController');
 const home = require('../controller/HomeController');
+const usermanagement = require('../controller/UserManagementContoller')
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {
@@ -22,4 +23,11 @@ router.post('/checkLogin', auth.checkLogin )
 
 router.get('/dashboard' , home.dashboard)
 
+router.get('/userslist' , usermanagement.getList)
+
+router.get('/adduser' , usermanagement.openUserForm)
+
+router.post('/userCreation' , usermanagement.userCreation)
+
 module.exports = router;
+ 

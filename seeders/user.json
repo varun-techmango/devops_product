@@ -2,7 +2,8 @@
     "data": [{
         "model": "User",
         "documents": [{
-            "fullname": "jeyalakshmi",
+            "firstname": "jeyalakshmi",
+            "lastname" : "ramu",
             "username": "jeys",
             "password": "pwd",
             "email" : "jey@tts.net",

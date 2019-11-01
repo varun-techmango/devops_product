@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DevOps Automation</title>
+    <% include ../styles.ejs %>
+</head>
+
+<body>
+<div class="page-wrapper chiller-theme toggled">
+  
+  <% include ../sidebar.ejs %>
+
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container-fluid">
+      <h2>User Management</h2>
+      <hr>
+      <!-- Editable table -->
+      <div class="card">
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"><a href="/adduser" class="text-success"><i
+            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+      <table class="table table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">FULL NAME</th>
+            <th class="text-center">USER NAME</th>
+            <th class="text-center">EMAIL</th>
+            <th class="text-center">ROLE</th>
+            <th class="text-center">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <%
+            if(userslist != null){
+              userslist.forEach(function(user){ 
+          %>
+                <tr>
+                  <td class="pt-3-half" ><%= user.firstname + " " + user.lastname %></td> 
+                  <td class="pt-3-half" ><%= user.username %></td> 
+                  <td class="pt-3-half" ><%= user.email %></td> 
+                  <td class="pt-3-half" ><%= user.roleid.rolename %></td> 
+                  <td>
+                      <span class="table-edit"><button type="button"
+                          class="btn btn-danger btn-rounded btn-sm my-0">Edit</button></span>
+                      <span class="table-remove"><button type="button"
+                          class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                    </td>
+                </tr>
+            <%  })
+             
+            } else { %>
+              <tr>
+                <td>no records found</td>
+              </tr>
+            <%
+          }
+          %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+        </div>
+      </div>
+      
+      
+    </div>
+
+  </main>
+  <!-- page-content" -->
+</div>
+<!-- page-wrapper -->
+
+<% include ../scripts.ejs %>
+<% include('users_script') %>
+
+</body>
+</html>
+

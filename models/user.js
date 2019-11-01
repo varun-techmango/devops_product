@@ -5,11 +5,14 @@ const bcrypt = require('bcryptjs')
 
 // create a schema
 var userSchema =  Schema({
-  fullname: String,
+  firstname: String,
+  lastname: String,
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   roleid: { type: Schema.Types.ObjectId, required: true , ref : 'Role'}, 
+  accesskey : String,
+  secretkey : String,
   created_at: Date,
   updated_at: Date
 });

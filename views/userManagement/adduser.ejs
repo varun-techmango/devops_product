@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DevOps Automation</title>
+    <% include ../styles.ejs %>
+</head>
+
+<body>
+<div class="page-wrapper chiller-theme toggled">
+  
+  <% include ../sidebar.ejs %>    
+
+
+  <main class="page-content">
+        <div class="container-fluid">
+          <h2>Add User</h2>
+          <hr>
+          <div class="card card-width">
+            <div class="card-body">
+                <form id="adduser">
+                    <div class="form-group">
+                        <label for="firstname">First Name *</label>
+                        <input type="text" class="form-control" id="firstname" placeholder="Enter First Name">
+                        <small id="errorfirstname" class="form-text text-error"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name *</label>
+                        <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">User Name *</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter User Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address *</label>
+                        <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="accesskey">Access Key</label>
+                        <input type="text" class="form-control" id="accesskey" placeholder="Enter Access Key">
+                    </div>
+                    <div class="form-group">
+                        <label for="secretkey">Secret Key</label>
+                        <input type="text" class="form-control" id="secretkey"  placeholder="Enter Secret Key">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <button type="submit" id ="btnSubmit" class="btn btn-danger btn-rounded btn-sm my-0">Submit</button>
+                </form>
+            </div>
+        </div>
+    <!-- Editable table -->
+          <div class="row mt-5">
+            <div class="col-md-6">
+              <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+    
+            </div>
+          </div>
+          
+          
+        </div>
+    
+      </main>
+</div>
+<% include ../scripts.ejs %>
+</body>
+</html>
