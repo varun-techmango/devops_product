@@ -59,10 +59,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(expressSession({
     resave: false,
-    saveUninitialized: false,
-    secret: uuid('abcdefghijklmnopqrestuwxyz'),
+    saveUninitialized: true,
+    secret: 'eeuqram',
     key: 'auth_id',
-    cookie: { maxAge: 3600000 } 
+    cookie: { maxAge: null ,httpOnly :true , path : '/' } 
 }));
 
 app.use(cookieParser())
@@ -88,22 +88,17 @@ function(err, client) {
 }
 )
 
-// client.on('connect', function() {
-//     console.log('Redis client connected');
-// });
-
-// client.on('error', function (err) {
-//     console.log('Something went wrong ' + err);
-// });
+app.use(function(req,res ,next){
+  res.locals.userdetails = req.session.userdetails
+  next();
+})
 
 //Routing
 app.use('/' , apiRoute) //.get(auth.signin);
 
 app.route('/getServer/:slug').get(service.getServer);
 
-
-
-app.listen(3200,function(){
+app.listen(3012,function(){
 	console.log("Server running");
 })
 

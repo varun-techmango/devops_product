@@ -25,9 +25,10 @@
     <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2"><a href="/adduser" class="text-success"><i
             class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-      <table class="table table-responsive-md table-striped text-center">
+      <table id="userslist" class="table table-responsive-md table-striped text-center">
         <thead>
           <tr>
+            <th class="text-center column_hidden" >User Id</th>
             <th class="text-center">FULL NAME</th>
             <th class="text-center">USER NAME</th>
             <th class="text-center">EMAIL</th>
@@ -36,20 +37,21 @@
           </tr>
         </thead>
         <tbody>
-
+          
           <%
             if(userslist != null){
               userslist.forEach(function(user){ 
           %>
                 <tr>
+                  <td class="pt-3-half column_hidden" ><%= user._id %></td> 
                   <td class="pt-3-half" ><%= user.firstname + " " + user.lastname %></td> 
                   <td class="pt-3-half" ><%= user.username %></td> 
                   <td class="pt-3-half" ><%= user.email %></td> 
                   <td class="pt-3-half" ><%= user.roleid.rolename %></td> 
                   <td>
-                      <span class="table-edit"><button type="button"
+                      <span class="table-edit"><button type="button" id="btnEdit"
                           class="btn btn-danger btn-rounded btn-sm my-0">Edit</button></span>
-                      <span class="table-remove"><button type="button"
+                      <span class="table-remove"><button type="button" id="btnRemove"
                           class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
                     </td>
                 </tr>
@@ -84,7 +86,7 @@
 <!-- page-wrapper -->
 
 <% include ../scripts.ejs %>
-<% include('users_script') %>
+<% include users_script.ejs %>
 
 </body>
 </html>

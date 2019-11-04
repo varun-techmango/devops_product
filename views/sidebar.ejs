@@ -15,18 +15,16 @@
             alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name">Jhon
-            <strong>Smith</strong>
+          <span class="user-name"><%= userdetails.firstname %>
+            <strong><%= userdetails.lastname %></strong>
           </span>
-          <span class="user-role">Administrator</span>
+          <span class="user-role"><%=userdetails.role %></span>
           <span class="user-status">
             <i class="fa fa-circle"></i>
             <span>Online</span>
           </span>
         </div>
-
        
-
       </div>
 
          <div class="sidebar-notification">
@@ -39,11 +37,9 @@
               <span class="badge badge-pill badge-success notification">7</span>
             </a>
             <a href="#">
-              <i class="fa fa-cog"></i>
-            
-Settings
+              <i class="fa fa-cog"></i>Settings
             </a>
-            <a href="#">
+            <a href="/logout" >
               <i class="fa fa-power-off"></i>
             </a>
           </div>

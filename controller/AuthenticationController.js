@@ -6,19 +6,18 @@ const jwt 			 = require('jsonwebtoken')
 const jwtmodule 	 = require('../jwt/jwtmodule')
 
 var schedule = require('node-schedule');
+const Log_Details    = require('../models/log_details')	
 
 exports.signin = function(req, res){
-	// res.json({Login : "Login Page"})
+	res.clearCookie('auth_id')
 	res.render('users/login')
 }
 
-
-
-exports.validateUserName = function(req,res){
+exports.validateEmail = function(req,res){
 	//email: 'jeyalakshmi.r@techmango.net'
 	console.log(req.body.email_id)
 
-	User.findOne({email: req.body.email_id} ,  'fullname username roleid password')
+	User.findOne({email: req.body.email_id} ,  'firstname lastname username')
 	.then((user) => {
 		//console.log("user " + user)
 		if(user == undefined){
@@ -35,7 +34,7 @@ exports.validateUserName = function(req,res){
 }
 
 exports.validatePassword = function(req,res){
-	User.findOne({email: req.body.email_id } , 'id fullname username email roleid password')
+	User.findOne({email: req.body.email_id } , 'firstname lastname username email roleid password')
 	.then((user) => {
 		console.log("user " + user)
 		user.comparePassword(req.body.password, (err, isMatch) => {
@@ -55,13 +54,11 @@ exports.validatePassword = function(req,res){
 }
 
 exports.checkLogin = function(req,res){
-	console.log(req.body.email_id , req.body.password)
 
-	User.findOne({email: req.body.email_id } , 'id fullname username email roleid password')
+	User.findOne({email: req.body.email_id })
+	.populate('roleid' , 'rolename description')
 	.then((user) => {
-		console.log("user " + user)
 		user.comparePassword(req.body.password, (err, isMatch) => {
-			console.log("isMatch" + isMatch)
 			if (isMatch && !err) {		
 				var token = jwtmodule.sign(JSON.parse(JSON.stringify(user)))	
 				
@@ -78,13 +75,36 @@ exports.checkLogin = function(req,res){
 
 				// redisServer.storeDataAsString("newString" , "mytesting")
 
-				//req.session.username = user.fullname
-				res.cookie('auth_token' , token , {httpOnly : true})
+				// req.session.username = user.username
+				// req.session.email = user.email
+				// req.session.firstname = user.firstname
+				// req.session.lastname = user.lastname
+				// req.session.role = user.roleid.rolename
+
+				req.session.userdetails = {
+					userid : user._id,
+					username : user.username,
+					email : user.email,
+					firstname : user.firstname,
+					lastname : user.lastname,
+					role : user.roleid.rolename
+				}
+				//res.cookie('auth_token' , token , {httpOnly : true})
+
+				var newLog = Log_Details({
+					userid : user._id,
+					log_type : 'Log_In',
+					log_date : new Date()
+				})
+
+				newLog.save(function(err){
+					if(err) throw err;
+					console.log("login created")
+				})
 
 				res.redirect('/dashboard')			
 			}
 			else {
-				console.log('Failed')
 				res.status(200).send({msg : 'Failed',userdata : null})
 			}
 		})

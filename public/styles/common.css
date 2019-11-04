@@ -560,3 +560,8 @@ body {
 .text-error{
   color : red !important
 }
+
+.column_hidden{
+  display:none;
+  visibility:hidden;
+}
