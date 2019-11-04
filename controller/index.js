@@ -1,5 +1,5 @@
 const datasetup = require('./DataSetupController')
-const auth = require('./AuthController')
+const auth = require('./AuthenticationController')
 const home = requier('./HomeController')
 
 module.exports = {

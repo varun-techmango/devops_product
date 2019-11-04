@@ -6,15 +6,11 @@
 
         $("#txtEmail").on('input', function() {
             if($(this).val().trim() != ""){
-                //alert('The text box really changed this time ' + $(this).val());
-                validateUserName($(this).val().trim())
+                validateEmail($(this).val().trim())
             }         
         });
 
         $("#btnContinue").on('click',function(){
-            console.log("Continue click working")
-            // $('#pwdpage').show()
-            // $('#userpage').hide()
 
             $('#pwdpage').css("display" , "block")
             $('#userpage').css("display" , "none")
@@ -31,10 +27,6 @@
         })
     });
 
-    // $(window).on('popstate', function(event) {
-    //     console.log("pop");
-    // });
-
     window.onpopstate = function() {
         alert('onpopstate')
         console.log('onpopstate')
@@ -42,19 +34,17 @@
         // $("#txtPassword").val("");
     }; 
 
-    function validateUserName(email)
+    function validateEmail(email)
     {
-        axios.post('/validateUserName', {
+        axios.post('/validateEmail', {
         email_id: email
     }).then(response => {  
        // $("#validationerrors").val(response);   
         if(response.data.msg === 'Success'){
-            console.log("response" + response.data.user.fullname)
-            $("#divusername").text("Hi " + response.data.user.fullname + "!")
+            $("#divusername").text("Hi " + response.data.user.username + "!")
             $('#correct_email').css("display" , "inline-block")
             $("#btnContinue").prop('disabled', false);
         } else {
-            console.log("response testname")
             $("#divusername").text("Hi! TestName")
             $('#correct_email').css("display" , "none")
             $("#btnContinue").prop('disabled', true);    
@@ -88,9 +78,7 @@
             email_id: $('#txtEmail').val().trim(),
             password: $('#txtPassword').val().trim()
         }).then(response => {  
-            // $("#validationerrors").val(response);   
             if(response.data.msg == 'Failed'){
-                console.log('failed')
             } else {
                 window.location = "/dashboard"; 
             }

@@ -552,3 +552,16 @@ body {
 .tags a.info{color:#FFF;background-color:#5BC0DE;border-color:#46B8DA}
 .tags a.warning{color:#FFF;background-color:#F0AD4E;border-color:#EEA236}
 .tags a.danger{color:#FFF;background-color:#D9534F;border-color:#D43F3A}
+
+.card-width {
+  width : 50%
+}
+
+.text-error{
+  color : red !important
+}
+
+.column_hidden{
+  display:none;
+  visibility:hidden;
+}
