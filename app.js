@@ -8,10 +8,13 @@ const cookieParser = require('cookie-parser');
 const ejs = require('ejs');
 const expressSession = require('express-session');
 const async = require('async');
-const apiRoute= require('./routes/api')
+
 const uuid = require('uuid/v4')
 const config = require('./config.json')
 const app = express();
+
+
+
 
 //var cors = require('cors');
 
@@ -42,8 +45,7 @@ ec2.stopInstances(params, function(err, data) {
 
 
 
-const auth = require('./controller/AuthController');
-const service = require('./controller/ServiceController');
+
 
 // var redis = require('redis');
 // var client = redis.createClient();
@@ -96,14 +98,33 @@ function(err, client) {
 //     console.log('Something went wrong ' + err);
 // });
 
-//Routing
-app.use('/' , apiRoute) //.get(auth.signin);
-
-app.route('/getServer/:slug').get(service.getServer);
 
 
 
-app.listen(3200,function(){
-	console.log("Server running");
+var server  = app.listen(3200,function(){
+    console.log("Server running");
 })
 
+
+var io = require('socket.io').listen(server);
+
+
+//Routing
+const apiRoute= require('./routes/api');
+const service = require('./controller/ServiceController');
+app.use('/' , apiRoute); //.get(auth.signin);
+app.route('/getServer').post(service.getServer);
+app.route('/getJenkins').post(service.getJenkins);
+
+/*io.on('connection', function (socket) {
+    console.log("Socket Connected");
+    //console.log(socket);
+   socket.on('message', function (data) {
+    console.log("Emitted");
+        io.emit('send', data);
+    });
+});
+
+*/
+
+app.set('io', io);
