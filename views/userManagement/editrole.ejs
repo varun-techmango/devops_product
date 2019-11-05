@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DevOps Automation</title>
+    <% include ../styles.ejs %>
+</head>
+
+<body>
+<div class="page-wrapper chiller-theme toggled">
+  <% include ../sidebar.ejs %>    
+
+  <main class="page-content">
+        <div class="container-fluid">
+          <h2>Edit Role</h2>
+          <hr>
+          <div class="card card-width">
+            <div class="card-body">
+                <form id="adduser" method="POST" action="/roleEdit" onsubmit="return funct_validation();">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="roleid"  name="roleid"                        
+                        value = '<%= role.id %>' >
+                        </div>
+                    <div class="form-group">
+                        <label for="rolename">Role Name *</label>
+                        <input type="text" class="form-control" id="rolename"  name="rolename"                        
+                        value = '<%= role.rolename %>' placeholder="Role Name Here..." required>
+                        <small id="errorrole" class="form-text text-error"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" name="description" class="form-control" id="description" 
+                        value = '<%=role.description %>' placeholder="Description ....">
+                    </div>
+                             
+                    <button type="submit" id ="btnRoleEdit" class="btn btn-danger btn-rounded btn-sm my-0">Edit</button>
+                </form>
+            </div>
+        </div>
+    <!-- Editable table -->
+          <div class="row mt-5">
+            <div class="col-md-6">
+              <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+    
+            </div>
+          </div>
+          
+          
+        </div>
+    
+      </main>
+</div>
+
+<% include ../scripts.ejs %>
+<% include users_script.ejs %>
+
+</body>
+</html>

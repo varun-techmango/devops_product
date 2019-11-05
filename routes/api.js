@@ -37,15 +37,34 @@ router.post('/userCreation' , usermanagement.userCreation)
 router.post('/userRemove' , usermanagement.userRemove)
 
 router.post('/userEdit' , usermanagement.userEdit)
+
+router.post('/validateRole' , usermanagement.validateRole)
+
+router.post('/roleCreation' , usermanagement.roleCreation)
+
+router.post('/roleRemove' , usermanagement.roleRemove)
+
+router.post('/roleEdit' , usermanagement.roleEdit)
+
+router.post('/validateUserEmail', usermanagement.validateUserEmail)
+
 //--------------------------------------
 
 // address bar url
 
 router.get('/dashboard' , isLoggedIn , home.dashboard)
 
-router.get('/userslist', isLoggedIn , usermanagement.getList)
+router.get('/userslist', isLoggedIn , usermanagement.getUserList)
 
 router.get('/adduser', isLoggedIn , usermanagement.openUserForm)
+
+router.get('/edituser',isLoggedIn , usermanagement.editUser)
+
+router.get('/roleslist' , isLoggedIn , usermanagement.getRoleList)
+
+router.get('/addrole' , isLoggedIn , usermanagement.openRoleForm)
+
+router.get('/editrole',isLoggedIn , usermanagement.editRole)
 
 router.get('/logout' , home.logout)
 //-----------------------------------------

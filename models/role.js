@@ -19,7 +19,9 @@ roleSchema.pre('save', function(next) {
     // change the updated_at field to current date
     this.updated_at = currentDate;
 
-    this.statusid = 1;
+    if(!this.statusid){
+      this.statusid = 1;
+    }
   
     // if created_at doesn't exist, add to that field
     if (!this.created_at)

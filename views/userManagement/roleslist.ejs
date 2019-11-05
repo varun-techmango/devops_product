@@ -23,35 +23,30 @@
       <div class="card">
   <div class="card-body">
     <div id="table" class="table-editable">
-      <span class="table-add float-right mb-3 mr-2"><a href="/adduser" class="text-success"><i
+      <span class="table-add float-right mb-3 mr-2"><a href="/addrole" class="text-success"><i
             class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-      <table id="userslist" class="table table-responsive-md table-striped text-center">
+      <table id="roleslist" class="table table-responsive-md table-striped text-center">
         <thead>
           <tr>
-            <th class="text-center column_hidden" >User Id</th>
-            <th class="text-center">FULL NAME</th>
-            <th class="text-center">USER NAME</th>
-            <th class="text-center">EMAIL</th>
-            <th class="text-center">ROLE</th>
+            <th class="text-center column_hidden">Role Id</th>
+            <th class="text-center">ROLL NAME</th>
+            <th class="text-center">DESCRIPTION</th>
             <th class="text-center">ACTIONS</th>
           </tr>
         </thead>
-        <tbody>
-          
+        <tbody>         
           <%
-            if(userslist != null && userslist.length > 0){
-              userslist.forEach(function(user){ 
+            if(roleslist != null && roleslist.length > 0){
+                roleslist.forEach(function(role){ 
           %>
                 <tr>
-                  <td class="pt-3-half column_hidden" ><%= user._id %></td> 
-                  <td class="pt-3-half" ><%= user.firstname + " " + user.lastname %></td> 
-                  <td class="pt-3-half" ><%= user.username %></td> 
-                  <td class="pt-3-half" ><%= user.email %></td> 
-                  <td class="pt-3-half" ><%= user.roleid.rolename %></td> 
+                  <td class="pt-3-half column_hidden" ><%= role._id %></td> 
+                  <td class="pt-3-half" ><%= role.rolename %></td> 
+                  <td class="pt-3-half" ><%= role.description %></td>
                   <td>
-                      <span class="table-edit"><button type="button" id="btnEdit"
+                      <span class="table-edit"><button type="button" id="btnRoleEdit"
                           class="btn btn-danger btn-rounded btn-sm my-0">Edit</button></span>
-                      <span class="table-remove"><button type="button" id="btnRemove"
+                      <span class="table-remove"><button type="button" id="btnRoleRemove"
                           class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
                     </td>
                 </tr>
@@ -59,8 +54,6 @@
              
             } else { %>
               <tr>
-                <td>&nbsp;</td>
-                <!-- <td>&nbsp;</td> -->
                 <td>No records found</td>
               </tr>
             <%

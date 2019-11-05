@@ -15,57 +15,68 @@
 
   <main class="page-content">
         <div class="container-fluid">
-          <h2>Add User</h2>
+          <h2>Edit User</h2>
           <hr>
           <div class="card card-width">
             <div class="card-body">
-                <form id="adduser" method="POST" action="/userCreation" onsubmit="return funct_validation();">
+                <form id="edituser" method="POST" action="/userEdit">
+                    <div class="form-group">
+                        <input type='hidden' class="form-control" id="userid" name="userid" value='<%= user.id %>'/>
+                    </div>
+
                     <div class="form-group">
                         <label for="firstname">First Name *</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name" required>
+                        <input type="text" class="form-control" value= '<%= user.firstname %>' 
+                        id="firstname" name="firstname" placeholder="Enter First Name" required>
                     </div>
                     <div class="form-group">
                         <label for="lastname">Last Name *</label>
-                        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Last Name" required>
+                        <input type="text" name="lastname" value='<%= user.lastname %>' class="form-control" id="lastname" placeholder="Enter Last Name" required>
                     </div>
                     <div class="form-group">
                         <label for="lastname">User Name *</label>
-                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter User Name" required>
+                        <input type="text" name="username" class="form-control" value= '<%= user.username %>' 
+                        id="username" placeholder="Enter User Name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email address *</label>
-                        <input type="email" name="email" class="form-control" id="email"  
-                        placeholder="Enter Email" required>
+                        <input type="email" name="eemail" class="form-control" id="eemail" value= '<%= user.email %>'
+                        placeholder="Enter Email" disabled>
                         <small id="erroremail" class="form-text text-error"></small>
                     </div>
                     <div class="form-group">
                         <label for="accesskey">Access Key</label>
-                        <input type="text" name="accesskey" class="form-control" id="accesskey"  placeholder="Enter Access Key">
+                        <input type="text" name="accesskey" class="form-control" id="accesskey" value= '<%= user.accesskey %>'
+                         placeholder="Enter Access Key">
                     </div>
                     <div class="form-group">
                         <label for="secretkey">Secret Key</label>
-                        <input type="text" name="secretkey" class="form-control" id="secretkey"  placeholder="Enter Secret Key">
+                        <input type="text" name="secretkey" class="form-control" id="secretkey" value= '<%= user.secretkey %>' 
+                        placeholder="Enter Secret Key">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="password">Password *</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                    </div>
+                        <input type="password" class="form-control" name="password" id="password" value= '<%= user.password %>' 
+                        placeholder="Password" required>
+                    </div> -->
                     <div class="form-group">
                          <label for="role">Role *</label>
-                         <select class="mdb-select md-form form-control" name="drprole" id="drprole" required >
+                         <select class="mdb-select md-form form-control" name="drprole" id="drprole" 
+                                value= '<%= user.roleid %>' required >
                             <option value="" disabled selected>Enter Role</option>
                             <%
                             if(roleslist != null){
                                 roleslist.forEach(function(role){ 
+                                    let isSelected = role._id == user.roleid ? "selected" : ""
                             %>
 
-                            <option value="<%- role._id %>"><%- role.rolename %></option>
+                            <option value="<%- role._id %>" selected = "<% isSelected %>"><%- role.rolename %></option>
                             <%  })
                             } %>
                         </select>
                     </div>
                         
-                    <button type="submit" id ="btnSubmit" class="btn btn-danger btn-rounded btn-sm my-0">Submit</button>
+                    <button type="submit" id ="btnEdit" class="btn btn-danger btn-rounded btn-sm my-0">Edit</button>
                 </form>
             </div>
         </div>
@@ -85,14 +96,6 @@
 
 <% include ../scripts.ejs %>
 <% include users_script.ejs %>
-
-<!-- <script>
-  
-  function funct_adduser(){
-                 console.log(" helloo  add userr "); 
-                 return false;
-  }
-</script> -->
 
 </body>
 </html>

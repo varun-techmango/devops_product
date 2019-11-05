@@ -14,7 +14,7 @@ exports.dashboard = function(req,res){
 exports.logout = function(req,res){
 	var newLog = Log_Details({
 		userid : req.session.userdetails.userid,
-		log_type : 'Log_In',
+		log_type : 'Log_Out',
 		log_date : new Date()
 	})
 

@@ -13,6 +13,7 @@ var userSchema =  Schema({
   roleid: { type: Schema.Types.ObjectId, required: true , ref : 'Role'}, 
   accesskey : String,
   secretkey : String,
+  statusid : {type: Number  },
   created_at: Date,
   updated_at: Date
 });
@@ -26,7 +27,9 @@ userSchema.pre('save', function(next) {
     // change the updated_at field to current date
     this.updated_at = currentDate;
 
-    this.statusid = 1;
+    if(!this.statusid){
+      this.statusid = 1;
+    }
 
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), null);
   

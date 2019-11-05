@@ -1,9 +1,7 @@
 <script type="text/javascript">
     var isValid = true;
 
-     
-   function funct_adduser(){
-        console.log(" helloo  add userr " + isValid); 
+   function funct_validation(){
         if(isValid){
             return true
         } else {
@@ -14,7 +12,6 @@
     $(document).ready(function(){
        
         $("#email").on('input', function() {
-            console.log("blur" + $(this).val())
             if($(this).val().trim() != ""){
                 validateEmail($(this).val().trim())
             }         
@@ -22,7 +19,7 @@
 
         function validateEmail(email)
             {
-                axios.post('/validateEmail', {
+                axios.post('/validateUserEmail', {
                 email_id: email
             }).then(response => {  
                 if(response.data.msg === 'Success'){
@@ -70,7 +67,7 @@
         $tableID.on('click', '.table-edit', function () { 
             const $row = $(this).parents('tr')    
             var userid = $row[0].cells["0"].textContent
-            // window.location = "/adduser"; 
+             window.location = "/edituser?id=" +userid; 
         });
 
         function removeItem(userid){
@@ -86,93 +83,81 @@
                 }); 
         }
 
+        $("#rolename").on('input', function() {
+            var hdnroleid = $("#roleid").val()
+            console.log("hdnroleid" , hdnroleid)
 
-    //  const $BTN = $('#export-btn');
-    //  const $EXPORT = $('#export');
-    
-    //  const newTr = `
-    // <tr class="hide">
-    //   <td class="pt-3-half" contenteditable="true">Example</td>
-    //   <td class="pt-3-half" contenteditable="true">Example</td>
-    //   <td class="pt-3-half" contenteditable="true">Example</td>
-    //   <td class="pt-3-half" contenteditable="true">Example</td>
-    //   <td class="pt-3-half" contenteditable="true">Example</td>
-    //   <td class="pt-3-half">
-    //     <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
-    //     <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
-    //   </td>
-    //   <td>
-    //     <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
-    //   </td>
-    // </tr>`;
-    
-    //  $('.table-add').on('click', 'i', () => {
-    
-    //    const $clone = $tableID.find('tbody tr').last().clone(true).removeClass('hide table-line');
-    
-    //    if ($tableID.find('tbody tr').length === 0) {
-    
-    //      $('tbody').append(newTr);
-    //    }
-    
-    //    $tableID.find('table').append($clone);
-    //  });
-    
-    //  $tableID.on('click', '.table-remove', function () {
-    
-    //    $(this).parents('tr').detach();
-    //  });
-    
-    //  $tableID.on('click', '.table-up', function () {
-    
-    //    const $row = $(this).parents('tr');
-    
-    //    if ($row.index() === 1) {
-    //      return;
-    //    }
-    
-    //    $row.prev().before($row.get(0));
-    //  });
-    
-    //  $tableID.on('click', '.table-down', function () {
-    
-    //    const $row = $(this).parents('tr');
-    //    $row.next().after($row.get(0));
-    //  });
-    
-    //  // A few jQuery helpers for exporting only
-    //  jQuery.fn.pop = [].pop;
-    //  jQuery.fn.shift = [].shift;
-    
-    //  $BTN.on('click', () => {
-    
-    //    const $rows = $tableID.find('tr:not(:hidden)');
-    //    const headers = [];
-    //    const data = [];
-    
-    //    // Get the headers (add special header logic here)
-    //    $($rows.shift()).find('th:not(:empty)').each(function () {
-    
-    //      headers.push($(this).text().toLowerCase());
-    //    });
-    
-    //    // Turn all existing rows into a loopable array
-    //    $rows.each(function () {
-    //      const $td = $(this).find('td');
-    //      const h = {};
-    
-    //      // Use the headers from earlier to name our hash keys
-    //      headers.forEach((header, i) => {
-    
-    //        h[header] = $td.eq(i).text();
-    //      });
-    
-    //      data.push(h);
-    //    });
-    
-    //    // Output the result
-    //    $EXPORT.text(JSON.stringify(data));
-    //  });
-  
+            if($(this).val().trim() != ""){
+                validateRole($(this).val().trim(),hdnroleid )
+            }         
+        });
+
+        function validateRole(rolename , roleid)
+            {
+                axios.post('/validateRole', {
+                rolename: rolename,
+                editedroleid : roleid
+            }).then(response => {  
+                if(response.data.msg === 'Success'){
+                    console.log("response" + response.data.role.rolename)
+                    isValid = false
+                    $("#errorrole").text('The Role Already exists')
+                } else {
+                    console.log("not exists")
+                    $("#errorrole").text('')
+                    isValid = true
+                }
+                
+                }).catch(error => {      
+                    isValid = false          
+                }); 
+        }
+
+        const $roletableID = $('#roleslist');
+
+        $roletableID.on('click', '.table-remove', function () { 
+            const $thistable = $(this)
+            const $row = $(this).parents('tr')    
+            var roleid = $row[0].cells["0"].textContent
+
+            toastr.info("<br /><button type='button' id='confirmYes' class='btn clear' value='yes'>Yes</button>  <button type='button' class='btn clear' id='confirmNo' value='no' >No</button>",
+            'Are you sure you want to delete this role?',
+                {  
+                    positionClass: "toast-top-center",
+                    timeOut : 5000,
+                    allowHtml: true,
+                    closeButton: false,
+                    onShown: function (toast) {
+                        $("#confirmYes").click(function(){
+                            $thistable.parents('tr').detach();
+                            //$thistable.remove($row.index)
+                            removeRoleItem(roleid)
+                        });
+                        $("#confirmNo").click(function(){
+                            toastr.remove()
+                        });
+                    }
+                })
+        });
+
+        function removeRoleItem(roleid){
+            axios.post('/roleRemove', {
+                roleid: roleid
+            }).then(response => {  
+                if(response.data.msg === 'Success'){
+                    console.log("Role Removed")
+                    
+                } 
+                }).catch(error => {      
+                    isValid = false          
+                }); 
+        }
+
+        $roletableID.on('click', '.table-edit', function () { 
+            const $row = $(this).parents('tr')    
+            var roleid = $row[0].cells["0"].textContent
+            window.location = "/editrole?id=" + roleid; 
+        });
+
 })
 </script>
