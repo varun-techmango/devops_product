@@ -20,79 +20,102 @@
       <h2>Dashboard</h2>
       <hr>
       <!-- Dashboard cards-->
-      <div class="row mt-5">
+      <div class="row">
         <div class="col-md-3">
-            <div class="card border-info mx-sm-1 p-3">
-                <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-database" aria-hidden="true"></span></div>
-                <div class="text-center mt-3"><h4>Servers</h4></div>
-                <div class="text-center mt-2"><h1>234</h1></div>
-                
-                <div class="row">
-                  <div class="col-md-6">
-                    <span class="badge badge-pill badge-danger">Inactive : 3</span>
+            
+            <div class="card border-info mx-sm-1">
+              <div class="row p-3">
+                <div class="col-xs-4">
+                  <div class="col-md-12"><h5>Servers</h5></div>
+                  <div class="col-md-12">
+                    <span class="badge badge-pill badge-warning"><span id="serverTotal">0</span>
                   </div>
-                  <div class="col-md-6">  
-                    <span class="badge badge-pill badge-success">Active : 3</span>
+                </div>  
+
+                <div class="col-xs-8">
+                  <div class="col-xs-12">
+                    <span class="badge badge-pill badge-danger">Inactive : <span id="serverFail">0</span></span>
+                  </div>
+                  <div class="col-xs-12">
+                    <span class="badge badge-pill badge-success">Active : <span id="serverSuccess">0</span></span>
                   </div>
                 </div>
-
+              </div>
             </div>
+
         </div>
         <div class="col-md-3">
-            <div class="card border-info mx-sm-1@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap'); p-3">
-                <div class="card border-info shadow text-info p-3 my-card"><span class="fa fa-tasks" aria-hidden="true"></span></div>
-                <div class="text-center mt-3"><h4>Jobs</h4></div>
-                <div class="text-center mt-2"><h1>9332</h1></div>
-
-                 <div class="row">
-                  <div class="col-md-6">
-                    <span class="badge badge-pill badge-danger">Failed : 3</span>
+            <div class="card border-info mx-sm-1">
+              <div class="row  p-3" style="padding-bottom: 6px !important;">
+                <div class="col-xs-4">
+                  <div class="col-md-12"><h5>Jobs</h5></div>
+                  <div class="col-md-12">
+                    <span class="badge badge-pill badge-warning"><span id="jenTotal">0</span>
                   </div>
-                  <div class="col-md-6">  
-                    <span class="badge badge-pill badge-success">Success : 3</span>
+                </div>  
+
+                <div class="col-xs-8">
+                  <div class="col-md-12">
+                    <span class="badge badge-pill badge-danger">Failed : <span id="jenFail">0</span></span>
+                  </div>
+                  <div class="col-md-12">
+                    <span class="badge badge-pill badge-secondary">Disabled : <span id="jenDisable">0</span></span>
+                  </div>
+                  <div class="col-md-12">
+                    <span class="badge badge-pill badge-primary">Success : <span id="jenSuccess">0</span></span>
                   </div>
                 </div>
-
+              </div>
             </div>
         </div>
+
         <div class="col-md-3">
-            <div class="card border-info mx-sm-1 p-3">
-                <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-users" aria-hidden="true"></span></div>
-                <div class="text-center mt-3"><h4>Users</h4></div>
-                <div class="text-center mt-2"><h1>346</h1></div>
-
-                 <div class="row">
-                  <div class="col-md-6">
-                    <span class="badge badge-pill badge-danger">Inactive : 3</span>
+            <div class="card border-info mx-sm-1">
+              <div class="row p-3">
+                <div class="col-xs-4">
+                  <div class="col-md-12"><h5>Users</h5></div>
+                  <div class="col-md-12">
+                    <span class="badge badge-pill badge-warning"><span id="userTotal">0</span>
                   </div>
-                  <div class="col-md-6">  
-                    <span class="badge badge-pill badge-success">Active : 3</span>
+                </div>  
+
+                <div class="col-xs-8">
+                  <div class="col-xs-12">
+                    <span class="badge badge-pill badge-danger">Inactive : <span id="userFail">0</span></span>
+                  </div>
+                  <div class="col-xs-12">
+                    <span class="badge badge-pill badge-success">Active : <span id="userSuccess">0</span></span>
                   </div>
                 </div>
-
+              </div>
             </div>
         </div>
+
         <div class="col-md-3">
-            <div class="card border-info mx-sm-1 p-3">
-                <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-folder" aria-hidden="true"></span></div>
-                <div class="text-center mt-3"><h4>Applications</h4></div>
-                <div class="text-center mt-2"><h1>346</h1></div>
-
-                 <div class="row">
-                  <div class="col-md-6">
-                    <span class="badge badge-pill badge-danger">Inactive : 3</span>
+            <div class="card border-info mx-sm-1">
+              <div class="row p-3">
+                <div class="col-xs-4">
+                  <div class="col-md-12"><h5>Apps</h5></div>
+                  <div class="col-md-12">
+                    <span class="badge badge-pill badge-warning"><span id="appTotal">0</span>
                   </div>
-                  <div class="col-md-6">  
-                    <span class="badge badge-pill badge-success">Active : 3</span>
+                </div>  
+
+                <div class="col-xs-8">
+                  <div class="col-xs-12">
+                    <span class="badge badge-pill badge-danger">Inactive : <span id="appFail">0</span></span>
+                  </div>
+                  <div class="col-xs-12">
+                    <span class="badge badge-pill badge-success">Active : <span id="appSuccess">0</span></span>
                   </div>
                 </div>
-
+              </div>
             </div>
-        </div>
       </div>
       <!-- Dashboard cards-->
+</div>
 
-      <div class="row mt-5">
+      <div class="row mt-3">
         <div class="col-md-6">
           <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
 
@@ -109,68 +132,88 @@
 
 <% include scripts.ejs %>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.6.0/socket.io.min.js"></script>
 
 <!-- Only for Dashboard -->
 <script type="text/javascript">
   $(document).ready(function() {
-    Highcharts.chart('container', {
-      chart: {
-          type: 'bar',
-          backgroundColor:'#1d1b41',
-      },
-      title: {
-          text: 'Server Resource Monitoring'
-      },
-      
-      xAxis: {
-          categories: ['Instance1', 'Instance2'],
-          title: {
-              text: null
-          }
-      },
-      yAxis: {
-          min: 0,
-          title: {
-              text: 'Server Load',
-              align: 'high'
-          },
-          labels: {
-              overflow: 'justify'
-          }
-      },
-      tooltip: {
-          valueSuffix: ' Bytes'
-      },
-      plotOptions: {
-          bar: {
-              dataLabels: {
-                  enabled: true
-              }
-          }
-      },
-      legend: {
-          layout: 'vertical',
-          align: 'right',
-          verticalAlign: 'top',
-          x: 10,
-          y: 30,
-          floating: true,
-          backgroundColor: '#FFFFFF'
-      },
-      credits: {
-          enabled: false
-      },
-      series: [{
-          name: 'Memory (RAM)',
-          data: [107, 31]
-      }, {
-          name: 'SWAP',
-          data: [133, 156]
-      }, {
-          name: 'Cache',
-          data: [814, 841]
-      }]
-  });
+
+    var socket = io();
+
+   
+
+    socket.on('send', function (data) {
+        var html = "<div class='msg'>"+data+"</div>";
+        $('.messages').append(html);
+        alert(html);
+    });
+    
+    socket.on('DashboardJenkins', function (data) {
+
+       $('#jenFail').html(data.errorCount);
+       $('#jenDisable').html(data.disableCount);
+       $('#jenSuccess').html(data.successCount);
+       $('#jenTotal').html(data.total);
+    });
+
+
+
+Highcharts.chart('container', {
+
+    title: {
+        text: 'Resourse Monitoring RAM'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Size'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+     xAxis: {
+        categories: ['Instance 1', 'Instance 2']
+    },
+    plotOptions: {
+        series: {
+             label: {
+                connectorAllowed: false
+            }
+        }
+    },
+
+    series: [{
+        name: 'Free',
+        data: [43934, 52503 ]
+    }, {
+        name: 'Total',
+        data: [24916, 24064]
+    }, {
+        name: 'Used',
+        data: [11744, 17722]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
+
   });
 </script>
 
