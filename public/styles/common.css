@@ -569,3 +569,8 @@ body {
 #eemail:disabled {
   background: #929eaa;
 }
+
+.apexcharts-tooltip {
+  background: #f3f3f3;
+  color: #000;
+}

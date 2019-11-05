@@ -84,7 +84,7 @@ function(err, client) {
     if (err == null){
         console.log("Connected successfully to mongodb") 
     } else {
-        console.log(err)
+        console.log("Please Run mongodb")
     }
 }
 )
@@ -97,7 +97,7 @@ app.use(function(req,res ,next){
 
 
 
-var server  = app.listen(3200,function(){
+var server  = app.listen(3012,function(){
     console.log("Server running");
 })
 
@@ -107,7 +107,6 @@ var io = require('socket.io').listen(server);
 
 //Routing
 const apiRoute= require('./routes/api');
-const service = require('./controller/ServiceController');
 app.use('/' , apiRoute); //.get(auth.signin);
 app.route('/getServer').post(service.getServer);
 app.route('/getJenkins').post(service.getJenkins);

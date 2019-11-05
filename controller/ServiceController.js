@@ -2,6 +2,7 @@ const express        = require('express');
 const router         = express.Router();	
 const http = require('http');	
 const parseJson = require('parse-json');
+const redisServer 		 = require('../redis/redisServer')
 
 exports.getServer = function(req, res){
 	
