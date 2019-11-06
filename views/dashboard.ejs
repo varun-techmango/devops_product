@@ -7,6 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DevOps Automation</title>
     <% include styles.ejs %>
+
+    <style type="text/css">
+     .table-responsive{
+        height:400px;  
+        overflow:scroll;
+        overflow-x: hidden;
+        color:#1d1b41;
+      }
+      .dashboard-tab thead tr:nth-child(1) th{
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          background: #1d1b41 !important;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -122,8 +138,57 @@
 
           </div>
         </div>
-        </div> </div>
+
+        <div class="col-md-6">
+
+          <div class="table-responsive">
+
+          <table class="table dashboard-tab">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Jobname</th>
+                <th scope="col">Status</th>
+                <th scope="col">Link</th>
+              </tr>
+            </thead>
+            <tbody id="jenTable">
+              <tr colspan="4"><td>No Data Found</td></tr>
+
+            </tbody>
+          </table>
+
+        </div>
+        </div>
       </div>
+
+
+       <div class="row mt-3">
+      
+
+        <div class="col-md-12">
+
+          <div class="table-responsive">
+
+          <table class="table dashboard-tab">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Log</th>
+                <th scope="col">Data & Time</th>
+              </tr>
+            </thead>
+            <tbody id="usersLogTable">
+              <tr colspan="4"><td>No Data Found</td></tr>
+
+            </tbody>
+          </table>
+
+        </div>
+        </div>
+      </div>
+
       
       
     </div>
@@ -140,57 +205,112 @@
 <!-- Only for Dashboard -->
 <script type="text/javascript">
   $(document).ready(function() {
-
+    axios.post('/getCpuStatistics', {}).then(function (response) {
+    }).catch(function (error) {
+    })
+    .then(function () {
+    }); 
+    var chart;
     var socket = io();
-
-   
-
     socket.on('send', function (data) {
-        var html = "<div class='msg'>"+data+"</div>";
-        $('.messages').append(html);
-        alert(html);
+      for(var i=0;i<options.series.length;i++){
+        var key = options.series[i].name.toLowerCase();
+        options.series[i].data = data.map(function(e){ return e[key]});
+      }
+      var categories = data.map(function(e){ return e['label']});
+      options.xaxis.categories = categories;
+      $(document.querySelector("#container")).empty();
+      if(!chart){
+        chart = new ApexCharts(document.querySelector("#container"), options);
+        chart.render();
+      }else{
+        chart.updateOptions({
+            xaxis: {
+              categories:categories,
+              labels: {
+                  style : {
+                    colors: '#FFFFFF'
+                  }
+              }
+            }
+          });
+        chart.updateSeries(options.series)
+      }
+        // var html = "<div class='msg'>"+data+"</div>";
+        // $('.messages').append(html);
+        // alert(html);
     });
     
     socket.on('DashboardJenkins', function (data) {
-
        $('#jenFail').html(data.errorCount);
        $('#jenDisable').html(data.disableCount);
        $('#jenSuccess').html(data.successCount);
        $('#jenTotal').html(data.total);
+       var serverData = data.serverData;
+       var table = '';
+       for(var i=0; i<serverData.jobs.length; i++){
+          if(serverData.jobs[i].color=='notbuilt'){
+            table +='<tr class="table-secondary"><th scope="row">'+(i+1)+'</th><td>'+serverData.jobs[i].fullname+'</td><td>Disabled</td><td><a href="'+serverData.jobs[i].url+'" target="_blank">link</a></td></tr>'
+          }else if(serverData.jobs[i].color=='red'){
+             table +='<tr class="table-danger"><th scope="row">'+(i+1)+'</th><td>'+serverData.jobs[i].fullname+'</td><td>Failed</td><td><a href="'+serverData.jobs[i].url+'" target="_blank">link</a></td></tr>'
+          }else{
+             table +='<tr class="table-primary"><th scope="row">'+(i+1)+'</th><td>'+serverData.jobs[i].fullname+'</td><td>Success</td><td><a href="'+serverData.jobs[i].url+'" target="_blank">link</a></td></tr>'
+          }
+        }
+         $('#jenTable').html(table);
+    });
+
+
+    socket.on('userlogs', function (data) {
+       console.log('userlogs',data);
+       var serverData = data;
+       var table = '';
+       for(var i=0; i<serverData.length; i++){
+          if(serverData[i].userid!=null){
+
+            if(serverData[i].log_type == 'Log_In'){
+              table +='<tr class="table-info"><th scope="row">'+(i+1)+'</th><td>'+serverData[i].userid.firstname+'</td><td>User Log in</td><td>'+serverData[i].log_date+'</td></tr>'
+            }else if(serverData[i].log_type == 'Log_Out'){
+              table +='<tr class="table-info"><th scope="row">'+(i+1)+'</th><td>'+serverData[i].userid.firstname+'</td><td>User Log out</td><td>'+serverData[i].log_date+'</td></tr>'
+            }
+        
+          }
+        }
+         $('#usersLogTable').html(table);
     });
 
     var options = {
             chart: {
-                height: 480,
-                width : 460,
-                type: 'line',
-                shadow: {
-                    enabled: true,
-                    color: 'blue',
-                    top: 18,
-                    left: 7,
-                    blur: 10,
-                    opacity: 1
-                },
-                zoom: {
-                    enabled: true,
-                    type: 'x',  
-                    autoScaleYaxis: false,  
-                    zoomedArea: {
-                      fill: {
-                        color: '#90CAF9',
-                        opacity: 0.4
-                      },
-                      stroke: {
-                        color: '#0D47A1',
-                        opacity: 0.4,
-                        width: 1
-                      }
+              height: 480,
+              width : 460,
+              type: 'line',
+              shadow: {
+                  enabled: true,
+                  color: 'blue',
+                  top: 18,
+                  left: 7,
+                  blur: 10,
+                  opacity: 1
+              },
+              zoom: {
+                  enabled: true,
+                  type: 'x',  
+                  autoScaleYaxis: false,  
+                  zoomedArea: {
+                    fill: {
+                      color: '#90CAF9',
+                      opacity: 0.4
+                    },
+                    stroke: {
+                      color: '#0D47A1',
+                      opacity: 0.4,
+                      width: 1
                     }
-                },
-                toolbar: {
-                    show: false
-                }
+                  }
+              },
+              toolbar: {
+                  show: false
+              }
             },
             colors: ['#b34910','#77B6EA', '#3be39a'],
             dataLabels: {
@@ -202,15 +322,18 @@
             series: [
                 {
                     name: "Total",
-                    data: [30, 7, 10, 18, 17, 13, 13]
+                    data: []
+                    //data: [30, 7, 10, 18, 17, 13, 13]
                 },
                 {
                     name: "Free",
-                    data: [28, 29, 33, 36, 32, 32, 33]
+                    data: []
+                    //data: [28, 29, 33, 36, 32, 32, 33]
                 },
                 {
                     name: "Used",
-                    data: [12, 11, 14, 18, 17, 13, 13]
+                    data: []
+                    //data: [12, 11, 14, 18, 17, 13, 13]
                 }
             ],
             title: {
@@ -230,7 +353,8 @@
                 size: 4
             },
             xaxis: {
-                categories: ['198.162.8.181-xvd1', '198.162.8.181-devlb', '198.162.8.182', '198.162.8.183', '198.162.8.184', '198.162.8.185', '198.162.8.186'],
+                //categories: ['198.162.8.181-xvd1', '198.162.8.181-devlb', '198.162.8.182', '198.162.8.183', '198.162.8.184', '198.162.8.185'],
+                categories: [],
                 // title: {
                 //     text: 'Servers',
                 //     style :{
@@ -273,9 +397,7 @@
             }
         }
 
-    var chart = new ApexCharts(document.querySelector("#container"), options);
-
-    chart.render();
+    
 
     // Highcharts.chart('container', {
 

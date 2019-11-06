@@ -4,6 +4,8 @@ const jwtmodule 	 = require('../jwt/jwtmodule')
 var schedule = require('node-schedule');
 const Log_Details    = require('../models/log_details')	
 
+var lib = require('../helpers/lib.js');
+
 exports.signin = function(req, res){
 	res.clearCookie('auth_id')
 	res.render('users/login')
@@ -39,6 +41,7 @@ exports.validatePassword = function(req,res){
 	})
 }
 
+
 exports.checkLogin = function(req,res){
 
 	User.findOne({email: req.body.email_id, statusid : 1 })
@@ -66,33 +69,37 @@ exports.checkLogin = function(req,res){
 				// req.session.firstname = user.firstname
 				// req.session.lastname = user.lastname
 				// req.session.role = user.roleid.rolename
+
+				req.session.userdetails = {
+					userid : user._id,
+					username : user.username,
+					email : user.email,
+					firstname : user.firstname,
+					lastname : user.lastname,
+					role : user.roleid.rolename
+				}
+				//res.cookie('auth_token' , token , {httpOnly : true})
+
+				var newLog = Log_Details({
+					userid : user._id,
+					log_type : 'Log_In',
+					log_date : new Date()
+				})
+
+				newLog.save(function(err){
+					if(err) throw err;
+					console.log("login created")
+				})
+
+				//call socket for update log in dashboard
+				var io = req.app.get('io');
+				var outData = lib.getLogInfo();
+
+				console.log(outData);
 				
-				// Role.find({} ,'rolename')
-				// .then((roles) => {
-						
-					req.session.userdetails = {
-						userid : user._id,
-						username : user.username,
-						email : user.email,
-						firstname : user.firstname,
-						lastname : user.lastname,
-						roleid : user.roleid.id,
-						role : user.roleid.rolename
-					}
-					
-					// res.cookie('auth_token' , token , {httpOnly : true})		
-	
-					var newLog = Log_Details({
-						userid : user._id,
-						log_type : 'Log_In',
-						log_date : new Date()
-					})
-	
-					newLog.save(function(err){
-						if(err) throw err;
-					})
-	
-					res.redirect('/dashboard')		
+				io.emit('userlogs', outData);
+
+				res.redirect('/dashboard')			
 			}
 			else {
 				res.status(200).send({msg : 'Failed',userdata : null})
