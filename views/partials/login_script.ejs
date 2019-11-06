@@ -3,6 +3,7 @@
         $('#pwdpage').hide()
         $('#correct_email').css("display" , "none")
         $('#correct_pwd').css("display" , "none")
+        $('#txtEmail').focus()
 
         $("#txtEmail").on('input', function() {
             if($(this).val().trim() != ""){
@@ -11,9 +12,7 @@
         });
 
         $("#btnContinue").on('click',function(){
-
-            $('#pwdpage').css("display" , "block")
-            $('#userpage').css("display" , "none")
+            gotoPasswordPage()
         })
 
         $("#btnStart").on('click',function(){
@@ -25,6 +24,25 @@
                 validatePassword($(this).val().trim())
             }
         })
+
+        $('#txtEmail').keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                if(!$("#btnContinue").attr('disabled')){
+                    gotoPasswordPage()
+                }
+            }
+        });
+
+         $('#txtPassword').keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                if(!$("#btnStart").attr('disabled')){
+                    checkLogin()
+                }
+            }
+        });
+
     });
 
     window.onpopstate = function() {
@@ -33,6 +51,12 @@
         $("#txtEmail").val("");
         // $("#txtPassword").val("");
     }; 
+
+    function gotoPasswordPage(){
+        $('#pwdpage').css("display" , "block")
+        $('#userpage').css("display" , "none")	
+        $('#txtPassword').focus()
+    }
 
     function validateEmail(email)
     {

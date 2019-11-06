@@ -47,6 +47,8 @@ router.post('/roleEdit' , usermanagement.roleEdit)
 
 router.post('/validateUserEmail', usermanagement.validateUserEmail)
 
+router.get('/getUserCount' , home.UsersCount)
+
 //--------------------------------------
 
 // address bar url
