@@ -204,14 +204,29 @@
 
 <!-- Only for Dashboard -->
 <script type="text/javascript">
+
+  function getUsersCount(){
+        axios.get('/getUserCount').then(response => { 
+                    console.log("users count")
+                }).catch(error => {      
+                    isValid = false          
+                }); 
+  }
+
   $(document).ready(function() {
-    axios.post('/getCpuStatistics', {}).then(function (response) {
-    }).catch(function (error) {
-    })
-    .then(function () {
-    }); 
+    // axios.post('/getCpuStatistics', {}).then(function (response) {
+    // }).catch(function (error) {
+    // })
+    // .then(function () {
+    // }); 
+
     var chart;
     var socket = io();
+
+    getUsersCount()
+
+    var socket = io();
+
     socket.on('send', function (data) {
       for(var i=0;i<options.series.length;i++){
         var key = options.series[i].name.toLowerCase();
@@ -277,6 +292,12 @@
         }
          $('#usersLogTable').html(table);
     });
+
+    socket.on('UsersCount' , function(data){
+      $('#userTotal').html(data.usersTotal);
+      $('#userFail').html(data.usersInactive);
+      $('#userSuccess').html(data.usersActive);
+    })
 
     var options = {
             chart: {

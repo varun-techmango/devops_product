@@ -53,23 +53,7 @@ exports.checkLogin =  async function(req,res){
 				
 				jwtmodule.verify(token , function(err,val) {
 				})
-
-				// schedule.scheduleJob('15 * * * * *', function(){
-				// 	console.log('These will be executed if second is 15. Eg:7m 15s , 78 15s ');
-				// 	// redis.startRedis(function(){
-				// 	// 	redis.storeDataAsString("newString" , "mytesting")
-				// 	// });
-				// 	//redis.startRedis();
-				// });
-
-				// redisServer.storeDataAsString("newString" , "mytesting")
-
-				// req.session.username = user.username
-				// req.session.email = user.email
-				// req.session.firstname = user.firstname
-				// req.session.lastname = user.lastname
-				// req.session.role = user.roleid.rolename
-
+				
 				req.session.userdetails = {
 					userid : user._id,
 					username : user.username,

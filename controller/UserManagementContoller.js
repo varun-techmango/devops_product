@@ -49,9 +49,12 @@ exports.userCreation = function(req,res) {
     })
 
     newUser.save(function(err){
-        if(err) throw err;
-
-        res.redirect('/userslist')
+        if(err) 
+        {
+            res.status(400).send({err : err })
+        } else {
+            res.redirect('/userslist')
+        }
     })
 }
 
