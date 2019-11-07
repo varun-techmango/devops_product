@@ -7,12 +7,12 @@ console.log("file included");
 // helpers.js
 module.exports = {
   getLogInfo: function() {
-  console.log("called"); 
-  		logDetails.find({})
+	return new Promise((resolve, reject) => {
+		logDetails.find({})
 		 	  .populate('userid' , 'firstname lastname roleid statusid')
 		 	  .then((userData) => {
-		 	  	return userData;
-		 });
-
+				resolve(userData);
+		 }).catch(function(e){reject(e)});
+	});
   }
 }

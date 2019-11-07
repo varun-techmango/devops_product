@@ -10,5 +10,5 @@ var logSchema =  Schema({
   log_date: Date
 });
 
-var Log_Details = mongoose.model('Log_Details', logSchema);
+var Log_Details = mongoose.model('log_details', logSchema);
 module.exports = Log_Details;

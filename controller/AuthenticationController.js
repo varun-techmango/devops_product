@@ -42,9 +42,9 @@ exports.validatePassword = function(req,res){
 }
 
 
-exports.checkLogin = function(req,res){
+exports.checkLogin =  async function(req,res){
 
-	User.findOne({email: req.body.email_id, statusid : 1 })
+	 User.findOne({email: req.body.email_id, statusid : 1 })
 	.populate('roleid' , 'rolename description')
 	.then((user) => {
 		user.comparePassword(req.body.password, (err, isMatch) => {
@@ -93,12 +93,11 @@ exports.checkLogin = function(req,res){
 
 				//call socket for update log in dashboard
 				var io = req.app.get('io');
-				var outData = lib.getLogInfo();
-
-				console.log(outData);
-				
-				io.emit('userlogs', outData);
-
+				lib.getLogInfo().then(function(outData){
+					setTimeout(function(){
+						io.emit('userlogs', outData);
+					},1000)
+				})
 				res.redirect('/dashboard')			
 			}
 			else {
